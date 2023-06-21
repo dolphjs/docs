@@ -1,0 +1,32 @@
+{
+  "name": "@dolphjs/docs",
+  "version": "0.0.1",
+  "description": "dolph is a light-weight, fast, express sugar-coat library for making software development faster.",
+  "repository": "dolphjs/docs",
+  "license": "MIT",
+  "contributors": [
+    "Andry Rasolofomanana <https://github.com/andryrasolofomanana>",
+    "Utibeabasi Ekong <https://github.com/Xlaez>",
+    "Christopher Egbaaibon <https://github.com/chrisegbaaaibon>"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "dolph",
+    "owl",
+    "dolphjs",
+    "owljs",
+    "dolphjs docs"
+  ],
+  "devDependencies": {
+    "vitepress": "^1.0.0-beta.3"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  }
+}
