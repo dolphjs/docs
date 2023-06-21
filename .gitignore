@@ -1,1 +1,6 @@
+# Dependency directories
 node_modules
+
+# vitepress build output
+.vitepress/dist
+.vitepress/cache
