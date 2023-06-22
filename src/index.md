@@ -13,4 +13,14 @@ hero:
     - theme: alt
       text: View on GitHub
       link: https://github.com/dolphjs/core
+
+features:
+  - title: Architecture MVC
+    details: Follows MVC for clean code separation, structured app development, and enhanced maintainability.
+  - title: Automatic Setup
+    details: Automates routing and middleware setup, freeing developers to focus on core functionality.
+  - title: Streamlined Development
+    details: Boosts productivity with simplified syntax, intuitive APIs, empowering clean and maintainable code.
+  - title: Performance Optimization
+    details: Incorporates performance-enhancing techniques to ensure efficient and speedy execution of applications.
 ---
