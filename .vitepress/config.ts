@@ -23,5 +23,11 @@ export default defineConfig({
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/dolphjs/core" }],
+
+    footer: {
+      message:
+        'Released under the <a href="https://github.com/dolphjs/docs/blob/main/LICENCE">MIT License</a>.',
+      copyright: `Copyright © ${new Date().getFullYear()} Dolphjs`,
+    },
   },
 });
