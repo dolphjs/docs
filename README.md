@@ -8,7 +8,7 @@ Before you begin, ensure that you have the following prerequisites installed on 
 
 - Git
 - Node: any 14.x version starting with v14.0.0 or greater
-- Package Manager Yarn, Npm or Pnpm(https://yarnpkg.com/lang/en/docs/install/)
+- Package Manager Yarn, Npm or Pnpm
 - A fork of the repo (for any contributions)
 
 ## Installation
