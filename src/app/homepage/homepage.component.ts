@@ -10,11 +10,10 @@ import {
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { fromEvent, Subscription } from 'rxjs';
-import { debounceTime, filter } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
 import { BasePageComponent } from './pages/page/page.component';
+import { Subscription, debounceTime, filter, fromEvent } from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-homepage',
