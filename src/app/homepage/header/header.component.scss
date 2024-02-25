@@ -13,7 +13,7 @@
 }
 
 .top-bar {
-  background: #0a0a0a;
+  background: #000000;
   text-align: center;
   height: 35px;
   padding: 4px;
@@ -35,9 +35,9 @@
 }
 
 .new {
-  background: #232323;
-  color: #ea2845;
-  border: 1px solid #ea2845;
+  background: #535c91;
+  color: #40a2d8;
+  border: 1px solid #40a2d8;
   font-size: 11px;
   padding: 2px 4px;
   border-radius: 2px;
@@ -67,7 +67,7 @@ header {
 
   &:hover {
     cursor: pointer;
-    background: #212121;
+    background: variables.$grey-color;
   }
   &.opened {
     width: 250px;
@@ -296,10 +296,10 @@ header {
     display: inline-block;
     padding: 1px 2px;
     font-weight: 700;
-    background: -webkit-linear-gradient(#ee2943, #d31e5a);
-    background: -o-linear-gradient(#ee2943, #d31e5a);
-    background: -moz-linear-gradient(#ee2943, #d31e5a);
-    background: linear-gradient(#ee2943, #d31e5a); /* Standard syntax */
+    background: -webkit-linear-gradient(#40a2d8, #359ed6);
+    background: -o-linear-gradient(#40a2d8, #359ed6);
+    background: -moz-linear-gradient(#40a2d8, #359ed6);
+    background: linear-gradient(#40a2d8, #359ed6); /* Standard syntax */
   }
 }
 
@@ -400,11 +400,10 @@ header {
 }
 
 ::ng-deep .DocSearch-Button:hover,
-::ng-deep .DocSearch-Button:active
-::ng-deep .DocSearch-Button:focus {
+::ng-deep .DocSearch-Button:active ::ng-deep .DocSearch-Button:focus {
   border-bottom-color: variables.$red-color;
   width: 240px;
-  
+
   @media (min-width: 1200px) and (max-width: 1300px) {
     width: 190px;
   }
@@ -436,8 +435,8 @@ header {
   display: none;
 }
 
-::ng-deep .DocSearch-Button:active, 
-::ng-deep .DocSearch-Button:focus, 
+::ng-deep .DocSearch-Button:active,
+::ng-deep .DocSearch-Button:focus,
 ::ng-deep.DocSearch-Button:hover {
   color: #a5a5a5;
 }

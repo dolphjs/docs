@@ -7,7 +7,7 @@
   @include utils.transform(translateX(-100%));
   padding: 125px 17px 40px 24px;
   width: 250px;
-  background: #f5f5f5;
+  background: #000000;
   position: fixed !important;
   bottom: 0;
   top: 0;
@@ -17,7 +17,7 @@
   &.opened {
     @include utils.transform(translateX(0));
   }
-  @include  utils.media(large) {
+  @include utils.media(large) {
     width: 250px;
   }
   @include utils.media(normal) {
@@ -67,9 +67,9 @@
 }
 
 .btn-version {
-  background: #dfdfdf;
+  background: variables.$blue-color;
   margin-top: 5px;
-  color: #151515;
+  color: #f4f4f4;
 
   &:hover {
     background: #cccccc;
@@ -82,6 +82,6 @@
   color: #fff;
 
   &:hover {
-    background: #151515;
+    background: #ccc;
   }
 }
