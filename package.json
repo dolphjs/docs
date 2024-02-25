@@ -16,7 +16,7 @@
     "lint": "eslint \"**/*.{ts,tsx}\" ",
     "e2e": "ng e2e",
     "docs": "npm run docs-only",
-    "docs-only": "ts-node -P tools/tsconfig.json tools/dgeni-cli.ts tools/transforms/nestjs-package/index",
+    "docs-only": "ts-node -P tools/tsconfig.json tools/dgeni-cli.ts tools/transforms/dolphjs-package/index",
     "prepare": "husky install"
   },
   "lint-staged": {

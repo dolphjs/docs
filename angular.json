@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "docs.nestjs.com": {
+    "docs.dolphjs.com": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",

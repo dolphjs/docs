@@ -1,0 +1,4 @@
+base-color=#070F2B
+secondary-colo=#1B1A55
+third-color=535C91
+fourth-color=9290C3
