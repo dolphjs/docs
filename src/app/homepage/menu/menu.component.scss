@@ -7,7 +7,7 @@
   @include utils.transform(translateX(-100%));
   padding: 125px 17px 40px 24px;
   width: 250px;
-  background: #000000;
+  background: variables.$lightblue-color;
   position: fixed !important;
   bottom: 0;
   top: 0;
@@ -23,7 +23,7 @@
   @include utils.media(normal) {
     &.opened {
       z-index: 1000;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 40px rgba(78, 79, 235, 0.5);
     }
   }
   @include utils.media(medium) {
