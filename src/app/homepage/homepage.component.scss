@@ -63,7 +63,7 @@
 
   a {
     font-weight: 600;
-    color: variables.$red-color;
+    color: #FFC436;
     &:hover {
       color: #0894e2;
     }
@@ -137,7 +137,7 @@
   }
 
   a {
-    color: variables.$red-color;
+    color: #FFC436;
     font-weight: 600;
     &:hover {
       color: #0894e2;
@@ -216,8 +216,8 @@
   }
 
   .btn-primary {
-    border: 2px solid variables.$red-color;
-    color: variables.$red-color;
+    border: 2px solid #FFC436;
+    color: #FFC436;
     padding: 12px 20px;
     display: inline-block;
 
