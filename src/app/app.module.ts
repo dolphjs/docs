@@ -12,6 +12,7 @@ import { FooterComponent } from './homepage/footer/footer.component';
 import { NewsletterComponent } from './homepage/newsletter/newsletter.component';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './homepage/header/header.component';
+import { ControllerCompponent } from './homepage/pages/controllers/controllers.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { HeaderComponent } from './homepage/header/header.component';
     FooterComponent,
     NewsletterComponent,
     SocialWrapperComponent,
+    ControllerCompponent
   ],
   bootstrap: [AppComponent],
   providers: [],
