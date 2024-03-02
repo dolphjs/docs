@@ -1,1 +1,1 @@
-export * from './renderNestJSMarkdown';
+export * from './renderDolphJSMarkdown';

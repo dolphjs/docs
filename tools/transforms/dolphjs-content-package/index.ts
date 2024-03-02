@@ -6,7 +6,7 @@ import dolphjsBasePackage, {
 } from '../dolphjs-base-package';
 import contentPackage, { contentFileReader } from '../content-package';
 
-export default new Package('nestjs-content', [
+export default new Package('dolphjs-content', [
   dolphjsBasePackage,
   contentPackage,
 ])

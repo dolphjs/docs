@@ -67,8 +67,6 @@ A summary on the generated files and directories:
 The `server.ts` registers components and services as well as starts the **Dolph core engine**:
 
 ```typescript
-@@filename(server)
-
 import { DolphFactory } from "@dolphjs/dolph";
 
 const dolph = new DolphFactory([]);
@@ -79,3 +77,41 @@ const { DolphFactory } = require("@dolphjs/dolph");
 const dolph = new DolphFactory([]);
 dolph.start();
 ```
+
+To create a new Dolph application instance, we instantiate the `DolphFactory` class. This class exposes a couple of methods that allow for configuration and other functionalities. The `start` method when called starts the `Dolph core engine`. 
+
+#### Architectures
+
+We try our best to be inclusive as possible hence the reason we have more than one architecture for Dolph projects: [spring](/architectures/spring) and [express](/architectures/express). The allow developers to write code based on thier preferences.
+
+>info **Note** Spring architecture is the recommended appraoch for building dolphjs applications because it has a lot of utilities, functions and features which could be used to speed up development time and give a better experience.
+
+Dolph is built on the [express](https://expressjs.com/) framework.
+
+#### Running the application
+
+Running the `dolph new <project name>` command set's up your project with the choosen architecture and config files but to run an application, you have to install packages by naviagting to the project location and runnning:
+
+```bash
+yarn install
+```
+
+After installing packages, you would want to have sample files generated for you and this can be done using the below command:
+
+```bash
+dolph generate -a <component name>
+```
+
+The command above generates a component with the following files: controller, service, model and registers the controller class in the component class.
+
+> info **Hint** As at the currently version, you need to import the component manually into the server file as shown below (the below example assumes you ran `dolph generate -a auth`):
+
+```typescript
+import { DolphFactory } from "@dolphjs/dolph";
+import { AuthComponent } from "./components/auth/auth.component";
+
+const dolph = new DolphFactory([AuthComponent]);
+dolph.start();
+```
+
+Now you can run `dolph start` to run the application on the default port or `dolph watch` to run in [watch mode](/cli/overview). After starting the server, navigate to your browser on `localhost:3030/auth/greet` to get a message from the server.

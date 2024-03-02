@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
       title: 'Overview',
       isOpened: true,
       children: [
-        { title: 'First steps', path: '/first-steps' },
+        { title: 'Guide', path: '/guide' },
         { title: 'Controllers', path: '/controllers' },
         { title: 'Providers', path: '/providers' },
         { title: 'Modules', path: '/modules' },

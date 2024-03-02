@@ -11,7 +11,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { BasePageComponent } from './pages/page/page.component';
-import { Subscription, debounceTime, filter, fromEvent } from 'rxjs';
+import { Subscription,  fromEvent } from 'rxjs';
+import { debounceTime, filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
@@ -161,9 +162,9 @@ export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
     scriptTag.onload = () => {
       (window as any).docsearch({
         apiKey: environment.algoliaApiKey,
-        indexName: 'nestjs',
+        indexName: 'dolphjs',
         container: '#search',
-        appId: 'SDCBYAN96J',
+        appId: 'MY12T9HC2R',
         debug: false,
       });
     };
