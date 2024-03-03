@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { GuideComponent } from './homepage/pages/guide/guide.component';
 import { ControllerCompponent } from './homepage/pages/controllers/controllers.component';
+import { IntroductionComponent } from './homepage/pages/introduction/introduction.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        // component: IntroductionComponent,
+        component: IntroductionComponent,
       },
       {
         path: 'guide',
