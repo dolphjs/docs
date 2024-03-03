@@ -355,3 +355,18 @@ throw new UnSupportedMediaException("this is an unsupported media exeption")
 
 > info **Hint** It's recommended to use exceptions over `ErrorResponse` when returing 4** and 5** status codes to maximize dolphjs error handling mechanisms.
 
+### Asynchronicity
+
+Due to the way Node.js works, most functions / methods are usually asynchronous in nature hence the 100% compatibility Dolph has with `async` functions.
+
+> info **Hint** Learn more about `async / await` feature [here](https://kamilmysliwiec.com/typescript-2-1-introduction-async-await)
+
+Every async function has to return a `Promise`. This means that you can return a deferred value that Dolph will be able to resolve by itself. Let's see an example of this:
+
+```typescript
+@Get()
+async fetchAll(): Promise<any[]>{
+  return [];
+}
+```
+

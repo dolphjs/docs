@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './homepage/header/header.component';
 import { ControllerCompponent } from './homepage/pages/controllers/controllers.component';
 import { IntroductionComponent } from './homepage/pages/introduction/introduction.component';
+import { ServicesComponent } from './homepage/pages/services/services.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { IntroductionComponent } from './homepage/pages/introduction/introductio
     SocialWrapperComponent,
     ControllerCompponent,
     IntroductionComponent,
+    ServicesComponent
   ],
   bootstrap: [AppComponent],
   providers: [],

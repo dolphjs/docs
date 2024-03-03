@@ -4,6 +4,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { GuideComponent } from './homepage/pages/guide/guide.component';
 import { ControllerCompponent } from './homepage/pages/controllers/controllers.component';
 import { IntroductionComponent } from './homepage/pages/introduction/introduction.component';
+import { ServicesComponent } from './homepage/pages/services/services.component';
 
 const routes: Routes = [
   {
@@ -25,13 +26,9 @@ const routes: Routes = [
         data: { title: 'Controllers' },
       },
       {
-        path: 'components',
-        redirectTo: 'providers',
-      },
-      {
-        path: 'providers',
-        // component: ComponentsComponent,
-        data: { title: 'Providers' },
+        path: 'services',
+        component: ServicesComponent,
+        data: { title: 'Services' },
       },
       {
         path: 'modules',
