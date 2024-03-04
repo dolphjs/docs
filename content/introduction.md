@@ -1,6 +1,6 @@
 ### Introduction
 
-Dolph.js is a Node.js framework built on the express framework aimed at maintaining simplicity and efficiency for development of server-side applications while enforcing clean-code architecture. Built with [TypeScript](http://www.typescriptlang.org/) and offers full support for both Typescript and Javascript while combining OOP (Object Oriented Programming) and FP (Functional Programming).
+Dolph.js is a Node.js framework built on the express framework aimed at maintaining simplicity and efficiency for development of server-side applications, while enforcing clean-code architecture. Built with [TypeScript](http://www.typescriptlang.org/) and offers full support for both Typescript and Javascript while combining OOP (Object Oriented Programming) and FP (Functional Programming).
 
 Dolph tries it's best to maintain compatibility with libraries and packages that work with [express](https://expressjs.com/en/) and also has a lot of similarities with the framework, hence making it's learning curve very easily for developers with prior knowledge of **express**.
 

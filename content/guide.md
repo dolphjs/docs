@@ -82,7 +82,7 @@ To create a new Dolph application instance, we instantiate the `DolphFactory` cl
 
 #### Architectures
 
-We try our best to be inclusive as possible hence the reason we have more than one architecture for Dolph projects: [spring](/architectures/spring) and [express](/architectures/express). The allow developers to write code based on thier preferences.
+We try our best to be inclusive as possible hence the reason we have more than one architecture for Dolph projects: [spring](/architectures/spring) and [express](/architectures/express). This allow developers to write code based on thier preferences.
 
 >info **Note** Spring architecture is the recommended appraoch for building dolphjs applications because it has a lot of utilities, functions and features which could be used to speed up development time and give a better experience.
 
