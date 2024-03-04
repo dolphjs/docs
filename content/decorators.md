@@ -86,5 +86,13 @@ Below is a list of these decorators:
             <td><code>@MediaParser(options: IMediaParserOptions)</code></td>
             <td><code>Utility decorator for processing files. Uses the multer library under the hood.</code></td>
         </tr>
+         <tr>
+            <td><code>@TryCatchDec()</code></td>
+            <td><code>Designed to be used with methods in a class, particularly those handling HTTP requests or asynchronous operations. It wraps the original method, catching any synchronous or asynchronous errors that might occur during its execution. This helps in handling errors gracefully and forwarding them to the next middleware or error-handling mechanism.</code></td>
+        </tr>
+        <tr>
+            <td><code>@TryCatchAsyncDec()</code></td>
+            <td><code>Designed to be used with asynchronous methods in a class, particularly those handling asynchronous operations or promises. It wraps the original asynchronous method, catching any errors that might occur during its execution. This helps in handling errors gracefully and forwarding them to the next middleware or error-handling mechanism.</code></td>
+        </tr>
     </tbody>
 </table>
