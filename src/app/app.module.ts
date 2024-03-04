@@ -15,6 +15,10 @@ import { HeaderComponent } from './homepage/header/header.component';
 import { ControllerCompponent } from './homepage/pages/controllers/controllers.component';
 import { IntroductionComponent } from './homepage/pages/introduction/introduction.component';
 import { ServicesComponent } from './homepage/pages/services/services.component';
+import { ModelsComponent } from './homepage/pages/models/models.component';
+import { ComponentsComponent } from './homepage/pages/components/components.component';
+import { MiddlewaresComponent } from './homepage/pages/middlewares/middlewares.component';
+import { DecoratorsComponent } from './homepage/pages/decorators/decorators.component';
 
 @NgModule({
   imports: [
@@ -35,7 +39,11 @@ import { ServicesComponent } from './homepage/pages/services/services.component'
     SocialWrapperComponent,
     ControllerCompponent,
     IntroductionComponent,
-    ServicesComponent
+    ServicesComponent,
+    ModelsComponent,
+    ComponentsComponent,
+    MiddlewaresComponent,
+    DecoratorsComponent,
   ],
   bootstrap: [AppComponent],
   providers: [],

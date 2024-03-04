@@ -5,6 +5,10 @@ import { GuideComponent } from './homepage/pages/guide/guide.component';
 import { ControllerCompponent } from './homepage/pages/controllers/controllers.component';
 import { IntroductionComponent } from './homepage/pages/introduction/introduction.component';
 import { ServicesComponent } from './homepage/pages/services/services.component';
+import { ModelsComponent } from './homepage/pages/models/models.component';
+import { ComponentsComponent } from './homepage/pages/components/components.component';
+import { DecoratorsComponent } from './homepage/pages/decorators/decorators.component';
+import { MiddlewaresComponent } from './homepage/pages/middlewares/middlewares.component';
 
 const routes: Routes = [
   {
@@ -31,14 +35,24 @@ const routes: Routes = [
         data: { title: 'Services' },
       },
       {
-        path: 'modules',
-        // component: ModulesComponent,
-        data: { title: 'Modules' },
+        path: 'models',
+        component: ModelsComponent,
+        data: { title: 'Models' },
       },
       {
-        path: 'middleware',
-        // component: MiddlewaresComponent,
-        data: { title: 'Middleware' },
+        path: 'components',
+        component: ComponentsComponent,
+        data: { title: 'Components' },
+      },
+      {
+        path: 'decorators',
+        component: DecoratorsComponent,
+        data: {title: 'Decorators'},
+      },
+      {
+        path: 'middlewares',
+        component: MiddlewaresComponent,
+        data: { title: 'Middlewares' },
       },
       {
         path: 'pipes',
