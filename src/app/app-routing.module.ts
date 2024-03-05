@@ -177,11 +177,11 @@ const routes: Routes = [
       //   loadChildren: () =>
       //     import('./homepage/pages/faq/faq.module').then((m) => m.FaqModule),
       // },
-      // {
-      //   path: 'cli',
-      //   loadChildren: () =>
-      //     import('./homepage/pages/cli/cli.module').then((m) => m.CliModule),
-      // },
+      {
+        path: 'cli',
+        loadChildren: () =>
+          import('./homepage/pages/cli/cli.module').then((m) => m.CliModule),
+      },
       // {
       //   path: 'openapi',
       //   loadChildren: () =>
