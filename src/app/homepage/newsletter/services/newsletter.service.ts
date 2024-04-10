@@ -8,11 +8,10 @@ export class NewsletterService {
   constructor(private readonly httpClient: HttpClient) {}
 
   addToNewsletter(email: string): Promise<any> {
-    const newsletterUrl =
-      'https://z93f42xq2l.execute-api.us-east-2.amazonaws.com/Stage/newsletter?token=db1f899025b5a59a76b6b34b2a013893';
+    const newsletterUrl = 'https://dolph-server.onrender.com/newsletter';
     return lastValueFrom(
       this.httpClient
-        .post(newsletterUrl, { email })
+        .post(newsletterUrl, { email, source: 'docs' })
         .pipe(catchError(() => EMPTY)),
     );
   }
