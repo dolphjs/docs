@@ -47,7 +47,7 @@ const routes: Routes = [
       {
         path: 'decorators',
         component: DecoratorsComponent,
-        data: {title: 'Decorators'},
+        data: { title: 'Decorators' },
       },
       {
         path: 'middlewares',
@@ -130,13 +130,13 @@ const routes: Routes = [
       //       (m) => m.FundamentalsModule,
       //     ),
       // },
-      // {
-      //   path: 'techniques',
-      //   loadChildren: () =>
-      //     import('./homepage/pages/techniques/techniques.module').then(
-      //       (m) => m.TechniquesModule,
-      //     ),
-      // },
+      {
+        path: 'techniques',
+        loadChildren: () =>
+          import('./homepage/pages/techniques/techniques.module').then(
+            (m) => m.TechniquesModule,
+          ),
+      },
       // {
       //   path: 'security',
       //   loadChildren: () =>
