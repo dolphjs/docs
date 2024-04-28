@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../../../../../src/app/shared/shared.module';
 import { ConfigurationComponent } from './configuration/configuration.component';
+import { DatabaseComponent } from './database/database.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: 'configuration',
     component: ConfigurationComponent,
     data: { title: 'Configuration' },
+  },
+  {
+    path: 'database',
+    component: DatabaseComponent,
+    data: { title: 'Database' },
   },
 ];
 

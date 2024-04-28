@@ -144,20 +144,20 @@ const routes: Routes = [
       //       (m) => m.SecurityModule,
       //     ),
       // },
-      // {
-      //   path: 'graphql',
-      //   loadChildren: () =>
-      //     import('./homepage/pages/graphql/graphql.module').then(
-      //       (m) => m.GraphqlModule,
-      //     ),
-      // },
-      // {
-      //   path: 'websockets',
-      //   loadChildren: () =>
-      //     import('./homepage/pages/websockets/websockets.module').then(
-      //       (m) => m.WebsocketsModule,
-      //     ),
-      // },
+      {
+        path: 'graphql',
+        loadChildren: () =>
+          import('./homepage/pages/graphql/graphql.module').then(
+            (m) => m.GraphqlModule,
+          ),
+      },
+      {
+        path: 'websockets',
+        loadChildren: () =>
+          import('./homepage/pages/websockets/websockets.module').then(
+            (m) => m.WebsocketsModule,
+          ),
+      },
       // {
       //   path: 'microservices',
       //   loadChildren: () =>
