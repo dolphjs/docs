@@ -46,7 +46,7 @@ And Finally, we need to register the component in our `server.ts` file:
 ```typescript
 import { DolphFactory } from "@dolphjs/dolph";
 import { Dolph } from "@dolphjs/dolph/common";
-import { DSocketInit } from "@dolphjs/dolph/common/interfaces/socket.interfaces";
+import { DSocketInit } from "@dolphjs/dolph/common";
 import { EventSocketComponent } from "./shared/socket/socket.component";
 import { SocketService } from "@dolphjs/dolph/packages";
 
