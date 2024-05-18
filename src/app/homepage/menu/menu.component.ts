@@ -37,73 +37,16 @@ export class MenuComponent implements OnInit {
       ],
     },
     {
-      title: 'Fundamentals',
-      isOpened: false,
-      children: [
-        { title: 'Custom providers', path: '/fundamentals/custom-providers' },
-        {
-          title: 'Asynchronous providers',
-          path: '/fundamentals/async-providers',
-        },
-        {
-          title: 'Dynamic modules',
-          path: '/fundamentals/dynamic-modules',
-        },
-        {
-          title: 'Injection scopes',
-          path: '/fundamentals/injection-scopes',
-        },
-        {
-          title: 'Circular dependency',
-          path: '/fundamentals/circular-dependency',
-        },
-        {
-          title: 'Module reference',
-          path: '/fundamentals/module-ref',
-        },
-        {
-          title: 'Lazy-loading modules',
-          path: '/fundamentals/lazy-loading-modules',
-        },
-        {
-          title: 'Execution context',
-          path: '/fundamentals/execution-context',
-        },
-        {
-          title: 'Lifecycle events',
-          path: '/fundamentals/lifecycle-events',
-        },
-        {
-          title: 'Platform agnosticism',
-          path: '/fundamentals/platform-agnosticism',
-        },
-        { title: 'Testing', path: '/fundamentals/testing' },
-      ],
-    },
-    {
       title: 'Techniques',
       isOpened: false,
       children: [
         { title: 'Configuration', path: '/techniques/configuration' },
         { title: 'Database', path: '/techniques/database' },
-        { title: 'Mongo', path: '/techniques/mongodb' },
         { title: 'Validation', path: '/techniques/validation' },
-        { title: 'Caching', path: '/techniques/caching' },
-        { title: 'Serialization', path: '/techniques/serialization' },
-        { title: 'Versioning', path: '/techniques/versioning' },
-        { title: 'Task scheduling', path: '/techniques/task-scheduling' },
-        { title: 'Queues', path: '/techniques/queues' },
-        { title: 'Logging', path: '/techniques/logger' },
+        // { title: 'Caching', path: '/techniques/caching' },
         { title: 'Cookies', path: '/techniques/cookies' },
-        { title: 'Events', path: '/techniques/events' },
-        { title: 'Compression', path: '/techniques/compression' },
         { title: 'File upload', path: '/techniques/file-upload' },
-        { title: 'Streaming files', path: '/techniques/streaming-files' },
-        { title: 'HTTP module', path: '/techniques/http-module' },
-        { title: 'Session', path: '/techniques/session' },
         { title: 'Model-View-Controller', path: '/techniques/mvc' },
-        { title: 'Performance (Fastify)', path: '/techniques/performance' },
-        { title: 'Server-Sent Events', path: '/techniques/server-sent-events' },
       ],
     },
     {
@@ -118,7 +61,6 @@ export class MenuComponent implements OnInit {
         },
         { title: 'Helmet', path: '/security/helmet' },
         { title: 'CORS', path: '/security/cors' },
-        { title: 'CSRF Protection', path: '/security/csrf' },
         { title: 'Rate limiting', path: '/security/rate-limiting' },
       ],
     },

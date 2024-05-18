@@ -11,7 +11,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { BasePageComponent } from './pages/page/page.component';
-import { Subscription,  fromEvent } from 'rxjs';
+import { Subscription, fromEvent } from 'rxjs';
 import { debounceTime, filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
 import { environment } from '../../environments/environment';
@@ -149,7 +149,7 @@ export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
     const scriptTag = document.createElement('script');
     scriptTag.type = 'text/javascript';
     scriptTag.src =
-      '//cdn.carbonads.com/carbon.js?serve=CK7I653M&placement=nestjscom';
+      '//cdn.carbonads.com/carbon.js?serve=CK7I653M&placement=dolphjsio';
     scriptTag.id = '_carbonads_js';
     return scriptTag;
   }
@@ -165,7 +165,7 @@ export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
         indexName: 'dolphjs',
         container: '#search',
         appId: 'MY12T9HC2R',
-        debug: false,
+        debug: true,
       });
     };
     return scriptTag;
