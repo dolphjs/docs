@@ -2,7 +2,7 @@
 @use '../../../scss/utils';
 
 .newsletter-wrapper {
-  background: #e8e8e8;
+  background: variables.$grey-color;
   padding: 40px 85px;
   overflow: hidden;
   position: relative;
@@ -26,7 +26,7 @@
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 4px;
-  color: #111;
+  color: #f4f4f4;
 }
 
 .newsletter-wrapper p {
@@ -61,14 +61,15 @@
   font-size: 13px;
   height: 40px;
   padding: 10px 20px;
-  background: #fdfdfd;
+  background: #111;
   width: calc(100% - 70px);
-  box-shadow: -2px 2px 3px gainsboro;
+  box-shadow: -2px 2px 3px variables.$grey-color;
   border-radius: 3px;
   max-width: 100%;
   vertical-align: middle;
   box-sizing: border-box;
   outline: 0;
+  color: variables.$silver-color;
 }
 
 .newsletter-form button {

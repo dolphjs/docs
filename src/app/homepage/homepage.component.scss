@@ -6,6 +6,7 @@
   display: block;
   table-layout: fixed;
   width: 100%;
+  background: #151515;
   min-height: 100vh;
 }
 
@@ -58,7 +59,7 @@
 }
 
 .page-wrapper {
-  color: variables.$grey-color;
+  color: variables.$silver-color;
   line-height: 26px;
 
   a {
@@ -75,7 +76,7 @@
   h4,
   h5,
   h6 {
-    color: variables.$black-color;
+    color: variables.$darksilver-color;
   }
   h3 {
     font-size: 24px;
@@ -109,7 +110,7 @@
     }
   }
   h5 {
-    color: variables.$grey-color;
+    color: variables.$silver-color;
     margin-top: 5px;
     font-weight: 600;
     font-size: 16px;
@@ -121,12 +122,13 @@
     margin-top: -10px !important;
   }
   p {
+    
     // text-align: justify;
   }
 }
 
 .sponsors-wrapper {
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid #404040;
   padding: 10px 0 60px;
   margin-top: 20px;
   position: relative;
@@ -147,7 +149,7 @@
   h3 {
     font-size: 24px;
     font-weight: 700;
-    color: #1d1d1d;
+    color: variables.$darksilver-color;
   }
 
   h4 {
@@ -167,7 +169,7 @@
     line-height: 26px;
     font-size: 16px;
     font-weight: 500;
-    color: #4e4e4e;
+    color: variables.$silver-color;
   }
 
   .logo-sponsor-container {
@@ -422,7 +424,7 @@
 }
 
 #carbonads a {
-  color: inherit;
+  color: variables.$silver-color;
   text-decoration: none;
   font-weight: 400;
 }
@@ -450,6 +452,7 @@
 .carbon-text {
   display: block;
   margin-bottom: 8px;
+  color: variables.$silver-color;
 }
 
 .carbon-poweredby {
@@ -469,11 +472,12 @@
     bottom: 20px;
     overflow: hidden;
     padding: 1em;
-    background: #fdfdfd;
+    background: #1d1d1d !important;
     text-align: center;
     line-height: 1.5;
     font-size: 13px;
     max-width: 130px;
+    display: none;
   }
 
   @include utils.media(large) {

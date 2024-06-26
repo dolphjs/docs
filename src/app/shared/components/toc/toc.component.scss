@@ -26,7 +26,7 @@
       top: 10px;
       bottom: 10px;
       width: 2px;
-      background: #efefef;
+      background: $grey-color;
     }
   }
 
@@ -61,8 +61,8 @@
       @include transform(translateY(-50%));
 
       content: '';
-      background: #fdfdfd;
-      border: 2px solid #efefef;
+      background: $darkgrey-color ;
+      border: 2px solid $grey-color;
       left: -4px;
       width: 6px;
       height: 6px;
@@ -78,7 +78,7 @@
   }
 
   a {
-    color: #404040;
+    color: $silver-color;
     font-weight: normal;
     &:hover {
       color: $blue-color;
