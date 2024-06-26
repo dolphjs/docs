@@ -65,71 +65,10 @@ const routes: Routes = [
         data: { title: 'Guards' },
       },
       {
-        path: 'exception-filters',
-        // component: ExceptionFiltersComponent,
-        data: { title: 'Exception filters' },
-      },
-      {
-        path: 'interceptors',
-        // component: InterceptorsComponent,
-        data: { title: 'Interceptors' },
-      },
-      {
-        path: 'custom-decorators',
-        // component: CustomDecoratorsComponent,
-        data: { title: 'Custom decorators' },
-      },
-      {
-        path: 'standalone-applications',
-        // component: ApplicationContextComponent,
-        data: { title: 'Standalone applications' },
-      },
-      {
-        path: 'application-context',
-        redirectTo: 'standalone-applications',
-      },
-      {
-        path: 'discover/companies',
-        // component: WhoUsesComponent,
-        data: { title: 'Discover - Who is using Nest?' },
-      },
-      {
-        path: 'migration-guide',
-        // component: MigrationComponent,
-        data: { title: 'Migration guide - FAQ' },
-      },
-      {
         path: 'support',
         // component: SupportComponent,
         data: { title: 'Support' },
       },
-      {
-        path: 'consulting',
-        // component: EnterpriseComponent,
-        resolve: {
-          url: 'externalUrlRedirectResolver',
-        },
-        // canActivate: [RedirectGuard],
-        data: {
-          externalUrl: 'https://enterprise.nestjs.com',
-        },
-      },
-      {
-        path: 'enterprise',
-        redirectTo: 'consulting',
-      },
-      {
-        path: 'enterprise',
-        // component: EnterpriseComponent,
-        data: { title: 'Official Support' },
-      },
-      // {
-      //   path: 'fundamentals',
-      //   loadChildren: () =>
-      //     import('./homepage/pages/fundamentals/fundamentals.module').then(
-      //       (m) => m.FundamentalsModule,
-      //     ),
-      // },
       {
         path: 'techniques',
         loadChildren: () =>

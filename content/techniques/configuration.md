@@ -14,7 +14,7 @@ Dolph does not provide a specific methodology for achieving this goal but does p
 $ yarn add joi 
 ```
 
-> warning **Note** `@hapi/joi` has been depreciated, this is the recommended package to use.
+> info **Note** `@hapi/joi` has been depreciated, this is the recommended package to use.
 
 #### Setup
 
