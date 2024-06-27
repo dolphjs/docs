@@ -4,7 +4,7 @@ The Helmet package is a collection of middleware functions designed to improve t
 
 Helmet can be configured using the **dolph_config** file as shown below:
 
-```typescript
+```yaml
 middlewares:
   helmet:
     contentSecurityPolicy:
