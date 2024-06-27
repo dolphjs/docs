@@ -76,13 +76,13 @@ const routes: Routes = [
             (m) => m.TechniquesModule,
           ),
       },
-      // {
-      //   path: 'security',
-      //   loadChildren: () =>
-      //     import('./homepage/pages/security/security.module').then(
-      //       (m) => m.SecurityModule,
-      //     ),
-      // },
+      {
+        path: 'security',
+        loadChildren: () =>
+          import('./homepage/pages/security/security.module').then(
+            (m) => m.SecurityModule,
+          ),
+      },
       {
         path: 'graphql',
         loadChildren: () =>
