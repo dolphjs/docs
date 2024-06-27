@@ -2,7 +2,7 @@
 
 Cross-Origin Resource Sharing (CORS) is a mechanism that allows resources (e.g., APIs) on a web server to be requested from another domain outside the domain from which the resource originated. It is a critical security feature implemented by web browsers to prevent unauthorized access to resources.
 
-When a web application makes a request to a different domain than the one serving the application, the browser sends an HTTP request with an Origin header indicating the origin of the requesting domain. The server then decides whether to allow the request based on the Origin header. You can read more on CORS [here][https://expressjs.com/en/resources/middleware/cors.html].
+When a web application makes a request to a different domain than the one serving the application, the browser sends an HTTP request with an Origin header indicating the origin of the requesting domain. The server then decides whether to allow the request based on the Origin header. You can read more on CORS [https://expressjs.com/en/resources/middleware/cors.html](here).
 
 #### Implementation 
 
@@ -11,7 +11,8 @@ CORS can be implemented two ways in Dolph, the first is the recommended and most
 1. Using the `dolph_config.yaml` file:
 
 ```json
-cors:
+middlewares:
+  cors:
     activate: true
     origin: www.example.com
     methods:
@@ -20,7 +21,7 @@ cors:
       - PUT
       - DELETE
     allowedHeaders:
-      - Content-Type
+      - 'Content-Type'
       - Authorization
     credentials: true
 port: 3030
@@ -43,4 +44,4 @@ dolph.enableCors({allowedHeaders: 'Content-Type', credentials: true})
 dolph.start();
 ```
 
-From the above code, we tell the dolphjs engine to enable the CORS middleware with the available route.
+From the above code, we tell the dolphjs engine to enable the CORS middleware with the provided options. Dolph makes use of the [https://www.npmjs.com/package/cors](CORS) package for this implementation.
