@@ -1,6 +1,6 @@
 ### Components
 
-A component is a special Dolph class that is used to organize the application structure and maintain the MVC. It is marked by the `@Component` decorator. All controllers belonging to an entity are registered in the entity's component and all components are registered in the `server.ts` file.
+A component is a special Dolph class that is used to organize the application structure and maintain the MVC. It is marked by the `@Component` decorator. All controllers and services belonging to an entity are registered in the entity's component and all components are registered in the `server.ts` file.
 
 <figure><img src="/assets/images/component.png"/></figure>
 

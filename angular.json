@@ -19,11 +19,14 @@
             "polyfills": "src/polyfills.ts",
             "assets": [
               "src/assets",
-              "src/favicon.ico",
+              "src/favicons/favicon.ico",
+              "src/favicons/favicon-32x32.png",
+              "src/favicons/favicon-16x16.png",
               "src/apple-touch-icon.png",
-              "src/apple-touch-icon-precomposed.png",
+              "src/android-chrome-144x144.png",
               "src/browserconfig.xml",
               "src/mstile-150x150.png",
+              "src/safari-pinned-tab.svg",
               "src/_redirects"
             ],
             "styles": ["src/styles.scss"]

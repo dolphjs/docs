@@ -34,6 +34,7 @@ export class MenuComponent implements OnInit {
         { title: 'Decorators', path: '/decorators' },
         { title: 'Middlewares', path: '/middlewares' },
         { title: 'Guards', path: '/guards' },
+        { title: 'Shields', path: '/shields' },
       ],
     },
     {

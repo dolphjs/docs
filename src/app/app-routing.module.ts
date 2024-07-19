@@ -9,6 +9,7 @@ import { ModelsComponent } from './homepage/pages/models/models.component';
 import { ComponentsComponent } from './homepage/pages/components/components.component';
 import { DecoratorsComponent } from './homepage/pages/decorators/decorators.component';
 import { MiddlewaresComponent } from './homepage/pages/middlewares/middlewares.component';
+import { ShieldsComponent } from './homepage/pages/shields/shields.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,11 @@ const routes: Routes = [
         path: 'middlewares',
         component: MiddlewaresComponent,
         data: { title: 'Middlewares' },
+      },
+      {
+        path: 'shields',
+        component: ShieldsComponent,
+        data: { title: 'Shields' },
       },
       {
         path: 'pipes',
