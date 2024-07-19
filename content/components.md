@@ -10,12 +10,13 @@ This is what a component looks like:
 @@filename(user.component)
 import { Component } from "@dolphjs/dolph/decorators";
 import { UserController } from "./user.controller";
+import { UserService } from "./user.service";
 
-@Component({ controllers: [UserController] })
+@Component({ controllers: [UserController], services: [UserService] })
 export class UserComponent {}
 ```
 
-And the component is regitered in the `server.ts` file jsut like this:
+And the component is registered in the `server.ts` file just like this:
 
 ```typescript
 @@filename(server)
@@ -26,4 +27,4 @@ const dolph = new DolphFactory([UserComponent]);
 dolph.start();
 ```
 
-> info **Hint** Each entity is required to have a component which registers the controller(s) and all components are registered in the `server.ts` file.
+> info **Hint** Each entity is required to have a component which registers the controller(s) and service(s) and all components are registered in the `server.ts` file.
