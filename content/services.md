@@ -45,7 +45,15 @@ export interface User{
 }
 ```
 
-Now, we can link and integrate the `UserService` and `UserController` classes together to build an actual API.
+We have to register the `UserService` class in our component in order to make use of it within our controller:
+
+```typescript
+@@filename(user.component.ts)
+
+@Component({ controllers: [UserController], services: [UserService] })
+export class UserComponent {}
+```
+
 
 ```typescript
 @@filename(user.controller.ts)
@@ -60,25 +68,27 @@ import {
 import { Get, Post, Route } from "@dolphjs/dolph/decorators";
 import { UserService } from "./user.service";
 
-const service =  new UserService();
 
 @Route('user')
 export class UserController extends DolphControllerHandler<Dolph> {
+  private UserService: UserService;
 
   @Post("new")
   async newUser(req: DRequest, res: DResponse): Promise<void>{
-    service.create(req.body);
+    this.UserService.create(req.body);
     SuccessResponse({res, body: {message: "user created successfully"}});
   }
 
   @Get(":name")
   async getUser(req: DRequest, res:DResponse): Promise<void>{
-    const result = service.fetchOne(req.params.name);
+    const result = this.UserService.fetchOne(req.params.name);
     if(!result) throw new NotFoundException("user not found");
     SuccessResponse({res, body: result});
   }
 }
 ```
+
+> info **Hint** Any service registered in the component is accessible to all the controllers registered in that component. The name given to the service on the controller class has to be the same as it's name in order to work, i.e a service by  name `UserService` should not be inferred as userService or service on the controller class but as **UserService**.
 
 This is what our directory structure looks like now:
 

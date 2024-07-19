@@ -6,6 +6,11 @@ Dolph provides only one out-of-the box way for doing this:
 
 - [Joi](https://www.npmjs.com/package/joi) : dolph makes use of the **Joi** package.
 
+- [class-validator](https://www.npmjs.com/package/class-validator): dolph makes use of the **class-validator** package
+
+
+### Joi
+
 In your user.validation.ts file:
 
 ```typescript
@@ -52,3 +57,46 @@ export const userValidation = {
   }),
 };
 ```
+
+### Class-Validator
+
+In your user.dto.ts file:
+
+```typescript
+import { IsEmail, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+
+export class CreateUserDto {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
+
+  @IsNumber()
+  age: number;
+
+  @IsString()
+  @IsEmail()
+  @IsNotEmpty()
+  email: string;
+}
+```
+
+In your user.controller.ts file:
+
+```typescript
+import { CreateUserDto } from './user.dto';
+import { validateBodyMiddleware } from "@dolphjs/dolph/common";
+
+ @Post('user')
+  @UseMiddleware(validateBodyMiddleware(CreateUserDto))
+  async createUser(req: DRequest, res: DResponse) {
+    const dto: CreateUserDto = req.body;
+    SuccessResponse({ res, body: dto });
+  }
+```
+
+The three middlewares usable with the **class-validator** validation are:
+- **validateBodyMiddleware** : used for validating request body
+- **validateQueryMiddleware** : used for validating request query params
+- **validateParamMiddleware**: used for validating request path params
+
+>info **Hint** When installing the **class-validator** package, do well to download the **class-transformer** package too else your code wouldn't work as expected.

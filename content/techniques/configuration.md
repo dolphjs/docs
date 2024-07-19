@@ -58,3 +58,96 @@ MONGO_DEV_URI=mongodb://localhost:27017/app-dev
 MONGO_PROD_URI=mongodb://localhost:27017/app-prod
 NODE_ENV=production
 ```
+
+### Config File (dolph_config.yaml)
+
+The dolph_config.yaml file is a central configuration file for the Dolph framework. It allows you to configure various aspects of the framework, including database connections, middleware settings, routing, and more. Below is a detailed explanation of each configuration option available in the file.
+
+```yaml
+database:
+  mongo:
+    url: sensitive
+    options: {}
+middlewares:
+  cors:
+    activate: true
+    origin: ''
+    methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+    allowedHeaders: []
+routing:
+  base: '/v1'
+port: 3030
+jsonLimit: 2mb
+```
+
+### Configuration Options
+
+<strong>database</strong>
+
+- **mongo** - Configuration for MongoDB
+- **mongo.url** - The MongoDB connection URL. If set to *sensitive*, Dolph will look for the **MONGO_URL** environment variable. If the environment variable is not found, an error will be thrown.
+- **mongo.options** - Additional MongoDB connection options (optional).
+
+<strong>middlewares</strong>
+
+- **cors** - Configuration for Cross-Origin Resource Sharing (CORS) middleware
+- **cors.activate** - Boolean value to activate or deactivate CORS middleware. If set to *false*, CORS middleware will not be applied.
+- **cors.origin** - Specifies the origin that is allowed to access the resources.
+- **cors.methods** -  A list of HTTP methods that are allowed.
+- **cors.allowedHeaders** - A list of headers that are allowed.
+- other options applicable to the **cors** package can be added below.
+
+<strong>routing</strong>
+
+- **base** - A string value that adds a prefix to all routes. For example, if base is set to v1, all routes will be prefixed with `/v1`.
+
+<strong>port</strong>
+
+An integer value specifying the port number. For example, `3030`.
+
+<strong>jsonLimit</strong>
+
+The **jsonLimit** setting configures the maximum size of JSON payloads that the server will accept.
+
+
+### Configuration Details
+
+**MongoDB URL Handling:** If the url field in database.mongo is set to sensitive, Dolph will look for the MONGO_URL environment variable. If this variable is not found, Dolph will throw an error and halt execution. This is useful for keeping sensitive information out of configuration files.
+
+**CORS Middleware:** The CORS middleware configuration allows you to specify origins, methods, and headers that are permitted. If middlewares.cors.activate is set to false, the CORS middleware will not be applied.
+
+**Routing Base:** The routing.base configuration adds the value of the base field as a prefix to all routes in the application. This is useful for versioning your API or organizing your routes under a common path.
+
+**Port:** The port configuration sets the port on which the Dolph application will listen for incoming requests. This should be an integer value.
+
+**JSON Limit:** The jsonLimit configuration sets the maximum size of JSON payloads that the server will accept. This should be specified in a format like 20mb.
+
+### Example Usage
+
+```yaml
+database:
+  mongo:
+    url: sensitive
+    options:
+  
+middlewares:
+  cors:
+    activate: true
+    origin: 'https://example.com'
+    methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+    allowedHeaders:
+      - 'Content-Type'
+      - 'Authorization'
+routing:
+  base: '/api/v1'
+port: 8080
+jsonLimit: 50mb
+```
