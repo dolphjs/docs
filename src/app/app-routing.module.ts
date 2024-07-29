@@ -66,11 +66,6 @@ const routes: Routes = [
         data: { title: 'Pipes' },
       },
       {
-        path: 'guards',
-        // component: GuardsComponent,
-        data: { title: 'Guards' },
-      },
-      {
         path: 'support',
         // component: SupportComponent,
         data: { title: 'Support' },

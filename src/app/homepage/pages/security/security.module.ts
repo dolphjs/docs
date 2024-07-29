@@ -5,6 +5,7 @@ import { SharedModule } from '../../../../../src/app/shared/shared.module';
 import { CorsComponent } from './cors/cors.component';
 import { HelmetComponent } from './helmet/helmet.component';
 import { EncryptionAndHashingComponent } from './encryption-and-hashing/encryption-and-hashing.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 const routes: Routes = [
   {
@@ -13,8 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'authorization',
-    // component: ,
-    // data: { title: 'Cookies' },
+    component: AuthorizationComponent,
+    data: { title: 'Authorization' },
   },
   {
     path: 'encryption-and-hashing',
