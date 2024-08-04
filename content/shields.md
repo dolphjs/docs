@@ -1,4 +1,4 @@
-## Shields
+### Shields
 
 A shield is a fancy middleware decorator that is used to attach mainly authentication and authorization middlewares to the controller at the top level, meaning that it affects all the methods (routers) under the controller class.
 

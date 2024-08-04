@@ -6,11 +6,14 @@ import { CorsComponent } from './cors/cors.component';
 import { HelmetComponent } from './helmet/helmet.component';
 import { EncryptionAndHashingComponent } from './encryption-and-hashing/encryption-and-hashing.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { RateLimitingComponent } from './rate-limiting/rate-limiting.component';
 
 const routes: Routes = [
   {
     path: 'authentication',
-    redirectTo: '/security/authentication',
+    component: AuthenticationComponent,
+    data: { title: 'Authentication' },
   },
   {
     path: 'authorization',
@@ -19,18 +22,23 @@ const routes: Routes = [
   },
   {
     path: 'encryption-and-hashing',
-    data: { title: 'encryption and hashing' },
+    data: { title: 'Encryption and hashing' },
     component: EncryptionAndHashingComponent,
   },
   {
     path: 'helmet',
-    data: { title: 'helmet' },
+    data: { title: 'Helmet' },
     component: HelmetComponent,
   },
   {
     path: 'cors',
-    data: { title: 'cors' },
+    data: { title: 'Cors' },
     component: CorsComponent,
+  },
+  {
+    path: 'rate-limiting',
+    data: { title: 'Rate limiting' },
+    component: RateLimitingComponent,
   },
 ];
 

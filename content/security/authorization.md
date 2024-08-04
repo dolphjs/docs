@@ -1,155 +1,138 @@
-## Authorization
+### Authorization
 
-Authorization is one of the core features of most software out there. Just like most concepts in software development, there are mostly always different ways to accomplish a goal depending on the requirements of the system, and that is the same case with **Authorization**. The most common implementation of Authorization is usually with the use of username or email and password combination. Upon authentication, the server sends an authorization token to the authenticated client, and this token is requested by the server on subsequent requests in order for the client to access resources on the server.
+In software development, **authorization** is literally the process of giving authority to users over a scope of actions. Fo instance, an admin is given authority to create, update, read, and delete resources while a normal user might be limited to only reading of resources on a system.
 
->info **Note** the `auth` package would be out together with the version 1.6 of Dolph.
+Authorization requires an authentication process in order to be enforced because you will most likely need to identify the user first before knowing what scopes to authorize the user over.
 
-### Creating and registering the authentication component
+There are a number of **authorization** approaches which are enforced depending on the nature or requirements of the application. We would discuss the most common of them `Role-based Access Control (RBAC)`.
 
-A component is a directory under the `src` directory that contains at least these three files: 
+DolphJs is yet to have an `auth` package which is said to be released together with the version `1.6` of the dolph core package, and until then we don't have  a  *dolph way* of performing these authentications but we can give a guide:
 
-- controller.ts
-- service.ts
-- component.ts
 
-We'll do this with the CLI
+### Role-based Access Control Implementation
 
-```bash
-$ dolph g -a auth
+Role-based access control (**RBAC**) is a policy-neutral access control mechanism defined around roles and privileges. The components of RBAC such as role-permissions, user-role and role-role relationships make it simple to perform user assignments.
+
+We will demonstrate how to make use of [middlewares](https://docs.dolphjs/middlewares) to implement a basic example of **RBAC** .
+
+We can represent the different roles in our app using an enum:
+
+`roles.enum.ts`
+
+```typescript
+export enum Role {
+    User = "USER",
+    Admin = "ADMIN"
+}
 ```
 
-We would delete the generated `auth.model.ts` file as we wouldn't be making use of it for this example.
+Let's have an `authorize.middleware.ts` file:
 
-Remember to register your component in the `server.ts` file and your service file in the `auth.component.ts` file so that they are available for use and recognized by the Dolph engine.
-
-auth.component.ts
 ```typescript
-import { Component } from "@dolphjs/dolph/decorators";
-import { Dolph, IPayload } from "@dolphjs/dolph/common";
-import { generateJWTwithHMAC } from "@dolphjs/dolph/utilities";
-import { AuthController } from "./auth.controller.ts";
-import { AuthService } from "./auth.service.ts";
-import moment from "moment";
-
-
-@Component({controllers: [AuthController], services: [AuthService]})
-export class AuthComponent {};
-```
-
-
-### Writing the signIn service method
-
-auth.service.ts
-```typescript
-import { DolphServiceHandler } from "@dolphjs/dolph/classes";
 import {
-  UnAuthorizedException,
-  Dolph,
+  DNextFunc,
+  DRequest,
+  DResponse,
+  ForbiddenException,
+  IPayload,
+  UnauthorizedException,
 } from "@dolphjs/dolph/common";
 
-export interface IUser{
-    id: number;
-    username: string;
-    password: string;
+export interface IUser {
+  id: number;
+  username: string;
+  password: string;
+  role: string;
 }
 
-export interface IAuthPayload{
-    user: IUser,
-    token: string;
-}
+export const Authorize =
+  (role: string) => async (req: DRequest, res: DResponse, next: DNextFunc) => {
+    try {
+      const payload: IPayload | undefined = req.payload;
 
-export class AuthService extends DolphServiceHandler<Dolph> {
+      if (!payload) throw new UnauthorizedException("Not Authenticated");
 
-    private users: IUser[] = [
-        {
-            id: 1,
-            username: "utee",
-            password: "veryStrongPassword"
-        },
-        {
-            id: 2,
-            username: "chris",
-            password: "veryWeakPassword"
-        },
-        {
-            id: 3,
-            username: "paul",
-            password: "superWeakPassword"
-        }
-    ]
+      /**
+       * Assuming the user has been authenticated and the user data was passed to the `payload.info` property
+       */
 
-    constructor(){
-        super("authService");
+      const info = payload.info as IUser;
+
+      if (info.role !== role)
+        throw new ForbiddenException(
+          "Your are forbidden from accessing this resource"
+        );
+
+      next();
+    } catch (e: any) {
+      next(e);
     }
+  };
 
-    private readonly getUserByUsername = async (username: string): Promise<IUser | undefined> => {
-        return this.users.find(user => user.username === username);
-    };
-
-    private signToken(username: string, expires: moment.Moment): string {
-        const payload: IPayload = {
-        exp: expires.unix(),
-        sub: username,
-        iat: moment().unix(),
-    };
-
-    return generateJWTwithHMAC({ payload, secret: "JwtSecretVerySafeSecret" });
-  }
-
-    public readonly signIn  = async (username: string, password: string): Promise<IAuthPayload> => {
-        const user = await this.getUserByUsername(username);
-
-        if(!user) throw new UnAuthorizedException("Invalid login credentials");
-
-        if(user.password !== password) throw new UnAuthorizedException("Invalid login credentials");
-
-        const expiresAt = moment().add(60, "minutes"); // the token expires after an hour
-
-        const token: string = this.signToken(user.username, expiresAt);
-
-        return {
-            user,
-            token,
-        }
-    };
-};
 ```
 
-> warn **Warning** never store password as plain text, make sure to check this [page](https://docs.dolph.com/security/encryption-and-hashing) to learn how to hash and compare passwords the [standard way](https://medium.com/@cmcorrales3/password-hashes-how-they-work-how-theyre-hacked-and-how-to-maximize-security-e04b15ed98d)
+> Warning **Notice** We assume that the `req.payload.info` property holds our user data and if you remember, from the [authentication](https://dolphjs.com/authentication) module, we said that usually there is always more to the authentication shield and that includes fetching the user data from the database using the key (in the case of that example, it's the `username`) and then setting the `req.payload.info` property with the user data for easy access within the application. In other nodejs frameworks, it's mostly added to the `req.user` property.
 
-
-### Writing the signIn endpoint in our controller class
-
-Having our service class, let's make use of it in the **AuthController**.
+Now, let's update the example from the [authentication](https://dolphjs.com/authentication)  module to implement authorization:
 
 ```typescript
 import { DolphControllerHandler } from "@dolphjs/dolph/classes";
-import { Post, Route } from "@dolphjs/dolph/decorators";
+import { Patch, Route, Shield } from "@dolphjs/dolph/decorators";
 import { Dolph, SuccessResponse, DRequest, DResponse } from "@dolphjs/dolph/common";
-import { AuthService } from "./auth.service";
+import { UserService } from "./user.service";
+import { Role } from "./roles.enum.ts";
 
-@Route("auth")
+@Shield([AuthShield, Authorize(Role.User)])
+@Route("user")
 export class AuthController extends DolphControllerHandler<Dolph>{
-    private AuthService: AuthService;
+    private UserService: UserService;
     constructor(){
         super();
     }
 
-    @Post("signin")
-    signIn(req: DRequest, res: DResponse) {
+    @Patch("update")
+    updateProfile(req: DRequest, res: DResponse) {
+        const { bio }: { bio: string} = req.body;
 
-        const { username, password }: { username: string, password: string } = req.body;
+        const result = this.UserService.findOneByUsernameAndUpdate(user.sub, bio);
 
-        const result = this.AuthService.signIn(username, password);
-
-        SuccessResponse({ res, body: { msg: "Client signed In successfully", data: result } });
+        SuccessResponse({ res, body: { msg: "User profile updated successfully", data: result } });
     };
 };
 ```
 
-> info **Hint** Make sure to always use validation middlewares in your controllers.
+> Warning **Notice** The order of insertion of the shields in the `@Shield` decorator matters. If you place the `Authorize` shield before the `AuthShield` then the `req.payload` object would not be available for the shield and it would result in an unwanted code behaviour.
 
-### Implementing the auth shield
+As shown above, the `Authorize` middleware is used as a shield. It can also be used as a middleware instead:
 
-A shield is a decorator used for applying auth middlewares to all endpoints of a controller. You might be wandering what you'll do if there is a controller-method that shouldn't have the auth shield applied to it and yes, there is a way to exempt a method from being shielded and that is by using the **@unshield** decorator on the controller-method.
+```typescript
 
+import { DolphControllerHandler } from "@dolphjs/dolph/classes";
+import { Patch, Route, UseMiddleware, Shield } from "@dolphjs/dolph/decorators";
+import { Dolph, SuccessResponse, DRequest, DResponse } from "@dolphjs/dolph/common";
+import { UserService } from "./user.service";
+import { Role } from "./roles.enum.ts";
+
+@Shield(AuthShield)
+@Route("user")
+export class AuthController extends DolphControllerHandler<Dolph>{
+    private UserService: UserService;
+    constructor(){
+        super();
+    }
+
+    @Patch("update")
+    @UseMiddleware(Authorize(Role.User))
+    updateProfile(req: DRequest, res: DResponse) {
+        const { bio }: { bio: string} = req.body;
+
+        const result = this.UserService.findOneByUsernameAndUpdate(user.sub, bio);
+
+        SuccessResponse({ res, body: { msg: "User profile updated successfully", data: result } });
+    };
+};
+```
+
+> info **Hint** When using the `TryCatchAsyncDec` decorator, it should be placed below the `@UseMiddleware` decorator for the middlewares to work.
+
+There are other ways of implementing authorization and different libraries offered to integrate them. We will update this module soon with other examples. We promise that the upcoming `dolpjs/auth` package would come with support for these and easy implementation.

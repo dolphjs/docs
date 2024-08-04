@@ -1,4 +1,4 @@
-## File Upload
+### File Upload
 
 Handling file upload is very straightforward, Dolph provides a decorator built on the [multer](https://github.com/expressjs/multer) package. Multer handles data posted in the multipart/form-data format, which is primarily used for uploading files via an HTTP **POST** request.
 

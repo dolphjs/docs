@@ -1,4 +1,4 @@
-## Cookies
+### Cookies
 
 A Cookie is used to store data on a browser. The cookie is sent from the server to the client and sent from the client to the server for every request made to the server.
 
