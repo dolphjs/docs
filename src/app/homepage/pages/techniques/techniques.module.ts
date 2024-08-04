@@ -7,6 +7,8 @@ import { DatabaseComponent } from './database/database.component';
 import { ValidationComponent } from './validation/validation.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { CookiesComponent } from './cookies/cookies.component';
+import { CachingComponent } from './caching/caching.component';
+import { ModelViewControllerComponent } from './model-view-controller/model-view-controller.component';
 
 const routes: Routes = [
   {
@@ -47,6 +49,16 @@ const routes: Routes = [
     path: 'cookies',
     component: CookiesComponent,
     data: { title: 'Cookies' },
+  },
+  {
+    path: 'caching',
+    component: CachingComponent,
+    data: { title: 'Caching' },
+  },
+  {
+    path: 'model-view-controller',
+    component: ModelViewControllerComponent,
+    data: { title: 'MVC' },
   },
 ];
 

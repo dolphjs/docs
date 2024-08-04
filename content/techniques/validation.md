@@ -1,4 +1,4 @@
-## Validation
+### Validation
 
 Validation has a  very important role to play when building APIs. It checks for the correctness of the data being sent by the client and handles any errors based on requirements before passing the data to the service in-charge of processing it.
 

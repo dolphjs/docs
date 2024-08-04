@@ -43,10 +43,13 @@ export class MenuComponent implements OnInit {
         { title: 'Configuration', path: '/techniques/configuration' },
         { title: 'Database', path: '/techniques/database' },
         { title: 'Validation', path: '/techniques/validation' },
-        // { title: 'Caching', path: '/techniques/caching' },
+        { title: 'Caching', path: '/techniques/caching' },
         { title: 'Cookies', path: '/techniques/cookies' },
         { title: 'File upload', path: '/techniques/file-upload' },
-        { title: 'Model-View-Controller', path: '/techniques/mvc' },
+        {
+          title: 'Model-View-Controller',
+          path: '/techniques/model-view-controller',
+        },
       ],
     },
     {
