@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "prestart": "npm run docs",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0",
     "start:watch": "ng serve --watch",
     "prebuild": "npm run docs",
     "build": "ng build --delete-output-path=false",
