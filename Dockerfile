@@ -9,7 +9,7 @@ ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
 COPY package.json ./
-COPY package-lock.json ./
+COPY yarn.lock ./
 
 RUN npm install --legacy-peer-deps --include=dev && npx husky install
 
