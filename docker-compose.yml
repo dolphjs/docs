@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./
+    container_name: dolph-frontend
+    ports:
+      - 4200:4200
+    networks:
+      - dolph_network
+
+networks:
+  dolph_network:
+    driver: bridge
