@@ -1,0 +1,26 @@
+name: Deploy Application
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  deploy_to_production:
+    name: Deploy to production server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing remote ssh commands using key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd docs
+            git pull origin main
+            docker compose up --build -d
+
+            exit
