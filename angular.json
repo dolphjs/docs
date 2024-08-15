@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "docs.dolphjs.com": {
+    "dolphjs.com": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -68,18 +68,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "docs.dolphjs.com:build"
+            "browserTarget": "dolphjs.com:build",
+             "allowedHosts": [
+              ".dolphjs.com"
+            ]
           },
           "configurations": {
             "production": {
-              "browserTarget": "docs.dolphjs.com:build:production"
+              "browserTarget": "dolphjs.com:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "docs.dolphjs.com:build"
+            "browserTarget": "dolphjs.com:build"
           }
         },
         "test": {
@@ -103,7 +106,7 @@
       }
     }
   },
-  "defaultProject": "docs.dolphjs.com",
+  "defaultProject": "dolphjs.com",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

@@ -1,11 +1,11 @@
 # Transforms overview
 
-All the content that is rendered by the docs.dolphjs.com application, and some of its
+All the content that is rendered by the dolphjs.com application, and some of its
 configuration files, are generated from source files by [Dgeni](https://github.com/angular/dgeni).
 Dgeni is a general purpose documentation generation tool.
 
 Markdown files in `content` are processed and transformed
-into files that are consumed by the `docs.dolphjs.com` web frontend.
+into files that are consumed by the `dolphjs.com` web frontend.
 
 ## Packages
 
@@ -35,5 +35,5 @@ The **dolphjs-content-package** manages this content further.
 
 ## Templates
 
-All the templates for the docs.dolphjs.com dgeni transformations are stored in the `tools/transforms/templates`
+All the templates for the dolphjs.com dgeni transformations are stored in the `tools/transforms/templates`
 folder. See the [README](./templates/README.md).

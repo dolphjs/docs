@@ -1,16 +1,16 @@
-# docs.dolphjs.com project tooling
+# dolphjs.com project tooling
 
 This document gives an overview of the tools we use to generate the content for the
-docs.dolphjs.com website.
+dolphjs.com website.
 
 # Transforms
 
-All the content that is rendered by the docs.dolphjs.com application, and some of its
+All the content that is rendered by the dolphjs.com application, and some of its
 configuration files, are generated from source files by [Dgeni](https://github.com/angular/dgeni).
 Dgeni is a general purpose documentation generation tool.
 
 Markdown files in `content` are processed and transformed
-into files that are consumed by the `docs.dolphjs.com` web frontend.
+into files that are consumed by the `dolphjs.com` web frontend.
 
 # dgeni-cli
 
