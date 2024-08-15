@@ -8,7 +8,7 @@ export class NewsletterService {
   constructor(private readonly httpClient: HttpClient) {}
 
   addToNewsletter(email: string): Promise<any> {
-    const newsletterUrl = 'http://13.40.31.183:3300/newsletter/';
+    const newsletterUrl = 'https://api.dolphjs.com/newsletter';
     return lastValueFrom(
       this.httpClient
         .post(newsletterUrl, { email, source: 'docs' })
