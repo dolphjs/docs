@@ -4,11 +4,12 @@ The [Dolph CLI](https://github.com/dolphjs/cli) is a command-line interface tool
 
 #### Installation
 
-**Note**: The Dolph CLI has two peer dependencies which should be installed alongside it, `@swc-core` and `@swc-cli`. 
+**Note**: The Dolph CLI has three peer dependencies which should be installed alongside it, `@swc/core`, `@swc/cli` and `ts-node` . 
 
 ```typescript
-$ npm install -g @dolphjs/cli @swc-core @swc-cli
+$ npm install -g @dolphjs/cli @swc/core @swc/cli ts-node
 ```
+
 
 ### Basic Workflow
 
