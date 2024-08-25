@@ -164,7 +164,7 @@ export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
         apiKey: environment.algoliaApiKey,
         indexName: 'dolphjs',
         container: '#search',
-        appId: 'MY12T9HC2R',
+        appId: '4F394QQS8G',
         debug: true,
       });
     };

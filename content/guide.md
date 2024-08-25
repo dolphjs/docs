@@ -1,21 +1,21 @@
 ### Guide
 
-We'll discuss the **core fundamentals** of Dolph in this section. In order to take you through the essential building blocks of the framework, we'll build a basic CRUD application with the most common features of Dolph at the introduction level.
+In this section, we'll explore the **core fundamentals** of Dolph. To illustrate the essential building blocks of the framework, we'll walk through creating a basic **CRUD** application, showcasing the key features of Dolph at an introductory level.
 
 #### Language
 
-[Typescript](https://www.typescriptlang.org/) is the default and recommended language for Dolph projects  but that doesn't stop us for making Dolph compatible with **pure Javascript** which runs on [Node.js](https://nodejs.org/en/).
+[Typescript](https://www.typescriptlang.org/) is the default and recommended language for Dolph projects.  However, Dolph is also compatible with pure JavaScript using the `express` style and can run on  [Node.js](https://nodejs.org/en/).
 
-Most of our examples and sample codes would be written with Typescript and with regards to the Typescript way of implementation, but you can always **switch the code snippets** to vanilla JavaScript syntax (simply click to toggle the language button in the upper right hand corner of each snippet).
+While most of our examples and sample code will be written in TypeScript, adhering to TypeScript conventions, you can easily switch the code snippets to vanilla JavaScript. Simply click the language toggle button in the upper right-hand corner of each snippet.
 
 #### Prerequisites
 
 - [Node.js](https://nodejs.org) (version >= 18)
-- [Dolph CLI](/cli/overview) (version >= 1.2.0)
+- [Dolph CLI](/cli/overview) (version >= 1.2.4)
 
 #### Setup
 
-To setup a new project, the [Dolph CLI](/cli/overview) would be used. We'll install the CLI below and  create a new project with it:
+To set up a new project, you will use the **Dolph CLI**. Below, we’ll install the CLI and create a new project with it:
 
 ```bash
 $ npm install -g @dolphjs/cli
@@ -24,7 +24,7 @@ $ dolph new <project name>
 
 > info **Hint** To create a new project in your current directory, use a `.` in place of `project name`.
 
-The `project name` directory would be created alongside some confiuration files and sub-folders. We'll assume you choosed the default dolph architecture [spring](/spring/overview)
+The `project name` directory will be created, along with some configuration files and subfolders.We'll assume you choose the default and recommended dolph structure [spring](/spring/overview)
 
 <div class="file-tree">
  <div class="item">src</div>
@@ -55,7 +55,7 @@ A summary on the generated files and directories:
 | `dolph_cli.yaml`          | The dolph CLI config file.                                                                                 |
 | `dolph_config.yaml`         | The dolphjs config file.                                                                               |
 | `package.json`                | Config file which holds info about the application. |
-| `tsconfig.json`                | Typescript cnfig file. |
+| `tsconfig.json`                | Typescript config file. |
 | `src`                | Holds code written by developer. |
 | `tests`                | Holds tests for codes. |
 | `src/components`                | Contains all the individual components of the project. |
@@ -78,33 +78,34 @@ const dolph = new DolphFactory([]);
 dolph.start();
 ```
 
-To create a new Dolph application instance, we instantiate the `DolphFactory` class. This class exposes a couple of methods that allow for configuration and other functionalities. The `start` method when called starts the `Dolph core engine`. 
+To create a new Dolph application instance, instantiate the `DolphFactory` class. This class provides several methods for configuration and other functionalities. Calling the start method will initialize the `Dolph core engine`.
 
 #### Architectures
 
-We try our best to be inclusive as possible hence the reason we have more than one architecture for Dolph projects: [spring](/architectures/spring) and [express](/architectures/express). This allow developers to write code based on thier preferences.
+We strive to be as inclusive as possible, which is why Dolph projects support two architectures:  [spring](/architectures/spring) and [express](/architectures/express). This flexibility allows developers to choose based on their preferences.
 
->info **Note** Spring architecture is the recommended appraoch for building dolphjs applications because it has a lot of utilities, functions and features which could be used to speed up development time and give a better experience.
+>info **Note** The Spring architecture is the recommended approach for building DolphJS applications. It offers numerous utilities, functions, and features designed to accelerate development and enhance the overall experience.
 
 Dolph is built on the [express](https://expressjs.com/) framework.
 
 #### Running the application
 
-Running the `dolph new <project name>` command set's up your project with the choosen architecture and config files but to run an application, you have to install packages by naviagting to the project location and runnning:
+The `dolph new <project name>` command sets up your project with the chosen architecture and configuration files. To run the application, you need to install the necessary packages. Navigate to the project directory and execute:
 
 ```bash
 yarn install
 ```
 
-After installing packages, you would want to have sample files generated for you and this can be done using the below command:
+After installing the packages, you may want to generate sample files. You can do this using the following command:
 
 ```bash
 dolph generate -a <component name>
 ```
 
-The command above generates a component with the following files: controller, service, model and registers the controller class in the component class.
+The command above generates a component with the following files: controller, service, model, and registers the controller class within the component class.
 
-> info **Hint** As at the currently version, you need to import the component manually into the server file as shown below (the below example assumes you ran `dolph generate -a auth`):
+> info **Hint** In the current version, you need to manually import the component into the server file. The example below assumes you ran `dolph generate -a auth`:
+
 
 ```typescript
 import { DolphFactory } from "@dolphjs/dolph";
@@ -114,4 +115,4 @@ const dolph = new DolphFactory([AuthComponent]);
 dolph.start();
 ```
 
-Now you can run `dolph start` to run the application on the default port or `dolph watch` to run in [watch mode](/cli/overview). After starting the server, navigate to your browser on `localhost:3030/auth/greet` to get a message from the server.
+You can now run `dolph start` to launch the application on the default port, or use `dolph watch` to run it in [watch mode](/cli/overview). After starting the server, open your browser and navigate to localhost:3030/auth/greet to receive a message from the server.

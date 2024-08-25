@@ -1,10 +1,10 @@
 ### Services
 
-Services are one of the most important concepts in Dolph and it's entire architecture. A service is any class that extends the `DolphServiceHandler` class. These classes are responsible for direct communication with databases, third-party APIs e.t.c. A service class would usually have the database model(s) registered to them. 
+Services are a core concept in Dolph and central to its architecture. A service is any class that extends the `DolphServiceHandler` class. These classes handle direct communication with databases, third-party APIs, and more. Typically, a service class will have the relevant database model(s) registered to it.
 
-The idea behing a service class is that all code directly related to a particular controller should be written in a single service so that the methods implement code that is sharable between each other.
+The purpose of a service class is to consolidate all code related to a particular controller into a single service, allowing methods to share code and functionality.
 
-Let's work through a sample service class for a **user** entity:
+Let’s walk through a sample service class for a ***user*** entity:
 
 ```typescript
 @@filename(user.service)
@@ -88,7 +88,7 @@ export class UserController extends DolphControllerHandler<Dolph> {
 }
 ```
 
-> info **Hint** Any service registered in the component is accessible to all the controllers registered in that component. The name given to the service on the controller class has to be the same as it's name in order to work, i.e a service by  name `UserService` should not be inferred as userService or service on the controller class but as **UserService**.
+Any service registered in a component is accessible to all controllers within that component. The name given to the service in the controller class must match its name exactly. For example, a service named UserService should be referred to as **UserService** in the controller class, not as ***userService*** or any other variation.
 
 This is what our directory structure looks like now:
 

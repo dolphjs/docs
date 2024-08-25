@@ -1,10 +1,10 @@
 ### Controllers
 
-Controllers are request handlers. They process the request made to the server and return appropriate response.
+Controllers handle requests by processing them and returning appropriate responses.
 
-With the help of routing, requests & group of requests are directed to individual controllers capable of handling such requests.
+Routing directs requests and groups of requests to specific controllers capable of managing them.
 
-Each controller in Dolph extends the `DolphControllerHandler` class and accepts a generic of `Dolph` as seen below:
+In Dolph, each controller extends the `DolphControllerHandler` class and accepts a generic type of `Dolph`, as shown below:
 
 ```typescript
 @Route('auth')
@@ -22,7 +22,7 @@ export class AuthController extends DolphControllerHandler<Dolph> {
 
 #### Routing
 
-Dolph makes use of the `Route()` decorator for routing, this decorator accepts a param of string which acts as a param prefix for routes and hence used to group a set of routes. We may choose to group a set of routes that deal only with the **user** routes so we pass `user` to the decorator as seen below:
+Dolph uses the `Route()` decorator for routing. This decorator takes a string parameter that serves as a prefix for routes, allowing you to group related routes together. For instance, if you want to group routes related to user functionality, you would pass `user` to the decorator, as shown below:
 
 ```typescript
 @Route('user')
@@ -38,9 +38,9 @@ export class AuthController extends DolphControllerHandler<Dolph> {
 }
 ```
 
-From the above code, when we want to call the **greet** method to process request, we reach that method using the path `/user/greet`.
+In the example above, to call the greet method and process a request, you would use the path `/user/greet`.
 
-> info **Hint** The **Route()** decorator is required in order for your request handler method to be reached. Creating only a controller via the CLI is very easy and recommended because the controller class get's registerd in the component class automatically for you:  `$ dolph g -c <name>` command.
+> info **Hint** The **Route()** decorator is necessary for your request handler method to be accessible. It’s recommended to create a controller via the CLI using the `$ dolph g -c <name>` command, as this automatically registers the controller class in the component class for you.
 
 The `Get()` decorator is a HTTP request method decorator which marks the **greet** method handler as a [get request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET). When the **Registrar** registers the controller into the dolph engine, a route mapping looking like this is created `GET /user/greet`.
 
@@ -50,7 +50,7 @@ The [SuccessResponse](/status/overview) is used to return a 200 status code with
 
 #### Route Parameters
 
-This can be used when you need to accept **dynamic data** as part of a request via the route path. (e.g `GET /user/1` to get user with the dynamic data `1`). In order to achieve this, we can use route paramter **placeholders** which are denoted by using a colon in the route path as seen below where the **name** plac:eholder is defined here `greet/:name` and gotten here `req.params.name`.
+This approach is useful when you need to accept dynamic data as part of a request via the route path (e.g., `GET /user/1` to retrieve the user with the dynamic data `1`). To achieve this, you can use route parameter placeholders, which are denoted by a colon in the route path. For example, the placeholder `:name` in the route `greet/:name` can be accessed using `req.params.name`.
 
 ```typescript
 @Route('user')
@@ -118,7 +118,7 @@ All the HTTP status codes are documented [here](https://developer.mozilla.org/en
 
 #### SuccessResponse (Response)
 
-The SuccessResponse class is a utility class designed to simplify the process of sending successful HTTP responses in your application. It is specifically tailored to handle responses with a standardized structure, including response status, body, and message.
+The `SuccessResponse` class is a utility designed to streamline the process of sending successful HTTP responses in your application. It provides a standardized structure for responses, including the status, body, and message.
 
 <strong>Usage</strong>
 
@@ -155,7 +155,7 @@ SuccessResponse({
 
 ```
 
-4. Sending a sucess response with neither body nor message:
+4. Sending a success response with neither body nor message:
 
 ```typescript
 SuccessResponse({
@@ -164,7 +164,7 @@ SuccessResponse({
 });
 ```
 
-> info **Hint** If the status field is not passed, the default status code is set to `200` as seen here: 
+> info **Hint** If the status field is not passed, the default status code is set to `200` as seen here:
 
 ```typescript
 SuccessResponse({
@@ -188,7 +188,7 @@ ErrorResponse({
 
 #### ErrorException (Exception)
 
-The ErrorException class extends the DefaultException class and is intended for representing custom error exceptions in your application. It provides a mechanism to create error instances with additional properties, such as status code, operational status, and stack trace.
+The ErrorException class extends the `DefaultException` class and is intended for representing custom error exceptions in your application. It provides a mechanism to create error instances with additional properties, such as status code, operational status, and stack trace.
 
 <strong>Constructor Parameters</strong>
 
@@ -229,7 +229,7 @@ throw new BadRequestException("this is a bad request exception")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `409` status code as seen below:
 
 ```typescript
-throw new ConflictException("this is a conflict exeption")
+throw new ConflictException("this is a conflict exception")
 ```
 
 #### ForbiddenException
@@ -237,7 +237,7 @@ throw new ConflictException("this is a conflict exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `403` status code as seen below:
 
 ```typescript
-throw new ForbiddenException("this is a forbidden exeption")
+throw new ForbiddenException("this is a forbidden exception")
 ```
 
 #### GoneException
@@ -245,7 +245,7 @@ throw new ForbiddenException("this is a forbidden exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `410` status code as seen below:
 
 ```typescript
-throw new GoneException("this is a gone exeption")
+throw new GoneException("this is a gone exception")
 ```
 
 #### HttpVersionUnSupportedException
@@ -253,7 +253,7 @@ throw new GoneException("this is a gone exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `410` status code as seen below:
 
 ```typescript
-throw new HttpVersionUnSupportedException("this is a http version unsupported exeption")
+throw new HttpVersionUnSupportedException("this is a http version unsupported exception")
 ```
 
 #### ImTeaPotException
@@ -261,7 +261,7 @@ throw new HttpVersionUnSupportedException("this is a http version unsupported ex
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `418` status code as seen below:
 
 ```typescript
-throw new ImTeaPotException("this is a I'm a teapot exeption")
+throw new ImTeaPotException("this is a I'm a teapot exception")
 ```
 
 #### InternalServerErrorException
@@ -269,7 +269,7 @@ throw new ImTeaPotException("this is a I'm a teapot exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `500` status code as seen below:
 
 ```typescript
-throw new InternalServerErrorException("this is an internal server exeption")
+throw new InternalServerErrorException("this is an internal server exception")
 ```
 
 #### MethodNotAllowedException
@@ -277,7 +277,7 @@ throw new InternalServerErrorException("this is an internal server exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `405` status code as seen below:
 
 ```typescript
-throw new MethodNotAllowedException("this is a method not allowed exeption")
+throw new MethodNotAllowedException("this is a method not allowed exception")
 ```
 
 #### MisDirectedException
@@ -285,7 +285,7 @@ throw new MethodNotAllowedException("this is a method not allowed exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `421` status code as seen below:
 
 ```typescript
-throw new MisDirectedException("this is a misdirected exeption")
+throw new MisDirectedException("this is a misdirected exception")
 ```
 
 #### NotAcceptableException
@@ -293,7 +293,7 @@ throw new MisDirectedException("this is a misdirected exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `406` status code as seen below:
 
 ```typescript
-throw new NotAcceptableException("this is a not-acceptable exeption")
+throw new NotAcceptableException("this is a not-acceptable exception")
 ```
 
 #### NotFoundException
@@ -301,7 +301,7 @@ throw new NotAcceptableException("this is a not-acceptable exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `404` status code as seen below:
 
 ```typescript
-throw new NotFoundException("this is a not-found exeption")
+throw new NotFoundException("this is a not-found exception")
 ```
 
 #### NotImplementedException
@@ -309,7 +309,7 @@ throw new NotFoundException("this is a not-found exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `501` status code as seen below:
 
 ```typescript
-throw new NotImplementedException("this is a not-implemented exeption")
+throw new NotImplementedException("this is a not-implemented exception")
 ```
 
 
@@ -318,7 +318,7 @@ throw new NotImplementedException("this is a not-implemented exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `402` status code as seen below:
 
 ```typescript
-throw new PaymentRequiredException("this is a payment required exeption")
+throw new PaymentRequiredException("this is a payment required exception")
 ```
 
 #### ServiceUnavaliableException
@@ -326,7 +326,7 @@ throw new PaymentRequiredException("this is a payment required exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `503` status code as seen below:
 
 ```typescript
-throw new ServiceUnavaliableException("this is a service unavailable exeption")
+throw new ServiceUnavaliableException("this is a service unavailable exception")
 ```
 
 #### TimeOutException
@@ -334,7 +334,7 @@ throw new ServiceUnavaliableException("this is a service unavailable exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `504` status code as seen below:
 
 ```typescript
-throw new TimeOutException("this is a timeout exeption")
+throw new TimeOutException("this is a timeout exception")
 ```
 
 #### UnauthorizedException
@@ -342,7 +342,7 @@ throw new TimeOutException("this is a timeout exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `401` status code as seen below:
 
 ```typescript
-throw new UnauthorizedException("this is an unauthorized exeption")
+throw new UnauthorizedException("this is an unauthorized exception")
 ```
 
 #### UnSupportedMediaException
@@ -350,7 +350,7 @@ throw new UnauthorizedException("this is an unauthorized exeption")
 This utility class extends the `DefaultException` class as the `ErrorException` does too,  but unlike the **ErrorException** class, in a typical dolph application, only the message param get's passed to this function because it defaults to a `415` status code as seen below:
 
 ```typescript
-throw new UnSupportedMediaException("this is an unsupported media exeption")
+throw new UnSupportedMediaException("this is an unsupported media exception")
 ```
 
 > info **Hint** It's recommended to use exceptions over `ErrorResponse` when returing 4** and 5** status codes to maximize dolphjs error handling mechanisms.
@@ -369,4 +369,3 @@ async fetchAll(): Promise<any[]>{
   return [];
 }
 ```
-

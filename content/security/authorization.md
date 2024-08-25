@@ -135,4 +135,4 @@ export class AuthController extends DolphControllerHandler<Dolph>{
 
 > info **Hint** When using the `TryCatchAsyncDec` decorator, it should be placed below the `@UseMiddleware` decorator for the middlewares to work.
 
-There are other ways of implementing authorization and different libraries offered to integrate them. We will update this module soon with other examples. We promise that the upcoming `dolpjs/auth` package would come with support for these and easy implementation.
+There are other ways of implementing authorization and different libraries offered to integrate them. We will update this module soon with other examples. We promise that the upcoming `dolphjs/auth` package would come with support for these and easy implementation.

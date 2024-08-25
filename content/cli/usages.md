@@ -11,12 +11,13 @@ $ dolph nw <project-name>
 
 ##### Description
 
-Creates and initalizes a new Dolph project.
+Creates and initializes a new Dolph project:
 
-- Creates a folder with the given `<project-name>`.
-- Prompts for configuration questions.
-- Populates the project folder with configuration files.
-- Creates sub-folders for source code (`/src`), sub-folder for test (`/tests`) and sub-folders for each.
+- Creates a folder with the specified `<project-name>`.
+- Prompts for configuration inputs.
+- Populates the project folder with necessary configuration files.
+- Creates sub-folders for source code (`/src`), tests (`/tests`), and other related structures.
+
 
 ##### Configuration questions
 
@@ -64,7 +65,7 @@ $ dolph build
 
 #### dolph start
 
-Compiles a Typescript written codebase to Javascript and outputs it to the output directory (`/app`) then starts the server or starts a Javascript server.
+Compiles a TypeScript codebase to JavaScript, outputs it to the designated output directory (`/app`), and then starts the server. Alternatively, it can start a JavaScript server directly if already compiled.
 
 ```typescript
 $ dolph start
@@ -77,4 +78,3 @@ Starts the dolph project in watch mode.
 ```typescript
 $ dolph watch
 ```
-

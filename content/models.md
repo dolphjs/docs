@@ -1,6 +1,6 @@
 ### Models
 
-Models represent the structure and validation rules for the data stored in the database. Each model is associated with a specific entity or collection, providing a consistent and structured way to interact with the underlying data storage. By default, Dolph uses [mongoose ODM](https://mongoosejs.com/) for **mongodb** database interactions and schema design, uses [sequelize ORM](https://sequelize.org/) for **mysql** and **postgresql** database interactions and schema designs.
+Models define the structure and validation rules for data stored in the database. Each model corresponds to a specific entity or collection, offering a consistent and structured approach to interact with the underlying data storage. By default, Dolph uses [Mongoose ODM](https://mongoosejs.com/) for **MongoDB** interactions and schema design, and [Sequelize ORM](https://sequelize.org/) for **MySQL** and **PostgreSQL** interactions and schema design.
 
 Example of a mongoose model:
 
@@ -42,6 +42,7 @@ const UserSchema = new Schema({
 const UserModel = model("users", UserSchema);
 module.exports = { UserModel };
 ```
+
 Example of mysql model:
 
 ```typescript
@@ -117,13 +118,13 @@ export class UserService extends DolphServiceHandler<Dolph> {
 ```
 Let's breakdown what we have in the code above:
 
-**InjectMongo** - this decorator is used to inject a **mongo model** into the service class. The **InjectMongo** decorator is used to inject a MongoDB model into a Dolph service class, enabling seamless interaction with the specified MongoDB collection. This decorator simplifies the process of accessing and manipulating data within the MongoDB database.
+**InjectMongo** - this decorator is used to inject a **mongo model** into the service class. The **InjectMongo** decorator is used to inject a MongoDB model into a Dolph service class, facilitating seamless interaction with the specified MongoDB collection. It simplifies the process of accessing and manipulating data within the MongoDB database.
 
-- **userModel** - the property name to bind the injected model to within the service class.
+- **userModel** - the property name used to bind the injected model within the service class.
 - **UserModel** -  the Mongoose model representing the MongoDB collection to be injected.
 - **Model\<IUser>** - A Mongoose model representing the structure and behavior of the MongoDB collection for user data.
 
-The **userModel** property is a protected, readonly property within the UserService class. It holds the Mongoose model for the MongoDB collection associated with user data. This property is injected and bound using the `@InjectMongo()` decorator.
+The **userModel** property is a protected, readonly property within the `UserService` class. It holds the Mongoose model for the MongoDB collection associated with user data. This property is injected and bound using the `@InjectMongo()` decorator.
 
 > info **Hint** Ensure that the property name used in **@InjectMongo("userModel", UserModel)** matches the property name within the service class **(protected readonly userModel!: Model\<IUser>)**.
 

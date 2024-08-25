@@ -1,6 +1,7 @@
 ### Overview
 
-The [Dolph CLI](https://github.com/dolphjs/cli) is a command-line interface tool used to initalize, generate entities and manage a Dolph project when in development. It's used for scaffolding the project, serving, both in development and production mode, and building the application for production. It also helps mainitain the architectural design and approach followed by Dolph.
+The [Dolph CLI](https://github.com/dolphjs/cli) is a command-line interface tool designed to initialize, generate entities, and manage a Dolph project during development. It supports project scaffolding, serving in both development and production modes, and building the application for production. The CLI also helps maintain the architectural design and approach prescribed by Dolph.
+
 
 #### Installation
 
@@ -13,7 +14,7 @@ $ npm install -g @dolphjs/cli @swc/core @swc/cli ts-node
 
 ### Basic Workflow
 
-After Installation, to ensure that the process was successful, you can run the **--help** command which is expected to return a list of commands and what they do.
+After installation, you can verify the process was successful by running the **--help** command. This command should return a list of available commands and their descriptions.
 
 ```typescript
 $ dolph --help
@@ -33,7 +34,7 @@ $ cd dolph-app
 $ yarn install
 ```
 
-The next command you'll run has to be the command to **generate** a component:
+The next step is to run the command to **generate** a component:
 
 ```typescript
 $ dolph generate -a user
@@ -56,15 +57,14 @@ and now you can run the command:
 $ yarn dev:start
 ```
 
-You will now see logs which indicates that your server has started running and you can go to your browser at `http://localhost:3300/user` to get a message from the server.
+You will now see logs indicating that your server has started running. You can open your browser and navigate to `http://localhost:3300/user` to receive a message from the server.
 
 
 #### Options
 
-When you run the `$ dolph new <project-name>` command, you are prompted with a couple of questions and your choice of answer for each question determines your project configuration. These configurationa are saved in the `dolph_cli.yaml` file which you see present in your root directory. 
+When you run the `$ dolph new <project-name>` command, you will be prompted with a series of questions. Your answers to these questions will determine your project's configuration, which is then saved in the `dolph_cli.yaml` file located in the root directory.
 
-> info **Note** The `dolph_cli.yaml` file is **readonly** and you shouldn't attempt to update it manually.
-
+> info **Note**  The `dolph_cli.yaml` file is readonly, so it should not be manually edited.
 
 #### Command Syntax
 

@@ -1,8 +1,8 @@
 ### Shields
 
-A shield is a fancy middleware decorator that is used to attach mainly authentication and authorization middlewares to the controller at the top level, meaning that it affects all the methods (routers) under the controller class.
+A shield is a specialized middleware decorator used to attach authentication and authorization middleware at the controller level. This means it affects all methods (routes) within the controller class.
 
-It does not really have many **out-of-the-box** use yet until version `1.6` when the dolph **shield** package would be introduced to handle authentication and authorization in a fancy and simple fashion.
+Currently, it has limited functionality, but with the introduction of version **1.6**, the Dolph shield package will be available to handle authentication and authorization in a more streamlined and user-friendly manner.
 
 `@dolphjs/shield`
 

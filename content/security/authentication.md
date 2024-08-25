@@ -154,7 +154,8 @@ export class AuthController extends DolphControllerHandler<Dolph>{
 
 ### Implementing the auth shield
 
-A shield is a decorator used for applying auth middlewares to all endpoints of a controller. You might be wondering what you'll do if there is a controller-method that shouldn't have the auth shield applied to it and yes, there is a way to exempt a method from being shielded and that is by using the **@UnShield** decorator on the controller-method.
+
+A shield is a decorator used for applying authentication middlewares to all endpoints of a controller. This ensures that every method within the controller is protected by the specified authentication logic. However, if there is a specific controller method that should not have the authentication shield applied, you can exempt that method by using the @UnShield decorator. The `@UnShield` decorator allows you to exclude certain methods from the shield's protection, providing flexibility in how authentication is enforced across your controller methods.
 
 We will assume that we have a user service with the method `findOneByUsernameAndUpdate` which accepts two parameters, the *username* and the *bio*. It uses the username to update a user's bio, meaning that our `IUser` would be updated to look like this:
 

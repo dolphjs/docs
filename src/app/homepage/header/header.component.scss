@@ -401,7 +401,7 @@ header {
 
 ::ng-deep .DocSearch-Button:hover,
 ::ng-deep .DocSearch-Button:active ::ng-deep .DocSearch-Button:focus {
-  border-bottom-color: variables.$red-color;
+  border-bottom-color: #e90;
   width: 240px;
 
   @media (min-width: 1200px) and (max-width: 1300px) {

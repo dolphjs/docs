@@ -12,7 +12,7 @@ See the [dolph build](/cli/usages#dolph-build) page for more information.
 
 #### Generation
 
-The `dolph generate` command, as the name implies, generate new Dolph components within the project directory.
+The `$ dolph generate` command creates new Dolph components within the project directory, as the name suggests.
 
 #### Migration
 
