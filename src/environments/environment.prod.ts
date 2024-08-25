@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
-  algoliaApiKey: '2fcb3bd54eef2a4852e0a15286cc5bf7',
-  appId: 'MY12T9HC2R',
+  algoliaApiKey: '2e02bbdc91dd9d0d06fd1f0e1f3c176a',
+  algoliaSaveKey: 'e741bbf67223c42a4412f460dbc44723',
+  appId: '4F394QQS8G',
   indexName: 'dolphjs',
 };
