@@ -6,7 +6,10 @@ import * as cheerio from 'cheerio';
 
 console.log(environment);
 
-const client = algosearch(environment.appId, environment.algoliaSaveKey);
+const client = algosearch(
+  environment.appId,
+  'e741bbf67223c42a4412f460dbc44723',
+);
 const index = client.initIndex(environment.indexName);
 
 // interface Document {

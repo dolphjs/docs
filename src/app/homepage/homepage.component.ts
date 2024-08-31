@@ -100,15 +100,15 @@ export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
     if (!footerRef || !carbonRef) {
       return;
     }
-    if (window.innerWidth < 768) {
-      this.renderer.removeStyle(carbonRef, 'position');
-      this.renderer.removeStyle(carbonRef, 'bottom');
-      return;
-    }
+    // if (window.innerWidth < 768) {
+    //   this.renderer.removeStyle(carbonRef, 'position');
+    //   this.renderer.removeStyle(carbonRef, 'bottom');
+    //   return;
+    // }
 
-    if (carbonRef) {
-      sponsorsWrapper.classList.add('sponsors-carbon');
-    }
+    // if (carbonRef) {
+    //   sponsorsWrapper.classList.add('sponsors-carbon');
+    // }
 
     const isPositionFixed =
       window.pageYOffset + window.innerHeight <
@@ -135,24 +135,24 @@ export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     this.contentRef = nativeElement.querySelector('.content');
     if (this.contentRef && !this.contentRef.querySelector('.carbon-wrapper')) {
-      const scriptTag = this.createCarbonScriptTag();
+      // const scriptTag = this.createCarbonScriptTag();
       const carbonWrapper = document.createElement('div');
       carbonWrapper.classList.add('carbon-wrapper');
-      carbonWrapper.prepend(scriptTag);
+      // carbonWrapper.prepend(scriptTag);
 
       this.contentRef.prepend(carbonWrapper);
     }
     this.cd.markForCheck();
   }
 
-  createCarbonScriptTag(): HTMLScriptElement {
-    const scriptTag = document.createElement('script');
-    scriptTag.type = 'text/javascript';
-    scriptTag.src =
-      '//cdn.carbonads.com/carbon.js?serve=CK7I653M&placement=dolphjsio';
-    scriptTag.id = '_carbonads_js';
-    return scriptTag;
-  }
+  // createCarbonScriptTag(): HTMLScriptElement {
+  //   const scriptTag = document.createElement('script');
+  //   scriptTag.type = 'text/javascript';
+  //   scriptTag.src =
+  //     '//cdn.carbonads.com/carbon.js?serve=CK7I653M&placement=dolphjsio';
+  //   scriptTag.id = '_carbonads_js';
+  //   return scriptTag;
+  // }
 
   createDocSearchScriptTag(): HTMLScriptElement {
     const scriptTag = document.createElement('script');
