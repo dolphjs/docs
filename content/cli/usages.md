@@ -67,14 +67,29 @@ $ dolph build
 
 Compiles a TypeScript codebase to JavaScript, outputs it to the designated output directory (`/app`), and then starts the server. Alternatively, it can start a JavaScript server directly if already compiled.
 
-```typescript
+```bash
 $ dolph start
 ```
+
+To start dolph.js with bun:
+
+```bash
+$ dolph start --bun
+```
+
 
 #### dolph watch
 
 Starts the dolph project in watch mode.
 
-```typescript
+```bash
 $ dolph watch
+
+```
+
+To start dolph.js in watch mode with bun:
+
+```bash
+$ dolph watch --bun
+
 ```

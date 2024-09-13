@@ -97,3 +97,9 @@ See [usage](/cli/usages) for detailed descriptions for each command.
 | `start`    |       | Compiles and runs an application.                          |
 | `watch`    |       | Compiles and runs an application in watch mode.                          |
 | `config`    |  `cf`  | Updates the `dolph_cli.yaml` file.                          |
+
+
+#### Running DolphJS on Bun
+
+From version `1.3` of the dolph-cli, support has been added for running dolph.js apps on bun. Make sure to download [bun](https://bun.sh/) on your computer before attempting to run dolphjs on bun.
+Make sure to run the `$ bun install` command instead of `$ yarn` when downloading packages to avoid compatibility issues.
