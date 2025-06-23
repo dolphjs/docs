@@ -59,9 +59,7 @@ export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     this.checkWindowWidth(window.innerWidth);
-    if (this.contentRef) {
-      this.contentRef.appendChild(this.createDocSearchScriptTag());
-    }
+    this.loadDocSearchScript();
   }
 
   ngOnDestroy() {
@@ -154,7 +152,107 @@ export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
   //   return scriptTag;
   // }
 
+  private loadDocSearchScript() {
+    if (document.querySelector('script[src*="docsearch"]')) {
+      this.initializeDocSearch();
+      return;
+    }
+
+    const scriptTag = document.createElement('script');
+    scriptTag.type = 'text/javascript';
+    scriptTag.src = 'https://cdn.jsdelivr.net/npm/@docsearch/js@3';
+    scriptTag.async = true;
+    scriptTag.onload = () => {
+      this.initializeDocSearch();
+    };
+    scriptTag.onerror = () => {
+      console.error('Failed to load DocSearch script');
+    };
+    
+    document.head.appendChild(scriptTag);
+  }
+
+  private initializeDocSearch() {
+    // Wait for the search container to be available
+    const searchContainer = document.querySelector('#search');
+    if (!searchContainer) {
+      console.warn('Search container not found, retrying...');
+      setTimeout(() => this.initializeDocSearch(), 100);
+      return;
+    }
+
+    console.log('Search container found:', searchContainer);
+    console.log('Environment:', environment);
+
+    // Check if docsearch is available
+    if (!(window as any).docsearch) {
+      console.error('DocSearch library not loaded');
+      return;
+    }
+
+    try {
+      (window as any).docsearch({
+        apiKey: environment.algoliaApiKey,
+        indexName: environment.indexName,
+        container: '#search',
+        appId: environment.appId,
+        debug: !environment.production,
+        searchParameters: {
+          facetFilters: [],
+        },
+        placeholder: 'Search documentation...',
+        maxResultsPerGroup: 7,
+        translations: {
+          button: {
+            buttonText: 'Search',
+            buttonAriaLabel: 'Search',
+          },
+          modal: {
+            searchBox: {
+              resetButtonTitle: 'Clear the query',
+              resetButtonAriaLabel: 'Clear the query',
+              cancelButtonText: 'Cancel',
+              cancelButtonAriaLabel: 'Cancel',
+            },
+            startScreen: {
+              recentSearchesTitle: 'Recent',
+              noRecentSearchesText: 'No recent searches',
+              saveRecentSearchButtonTitle: 'Save this search',
+              removeRecentSearchButtonTitle: 'Remove this search from history',
+              favoriteSearchesTitle: 'Favorite',
+              removeFavoriteSearchButtonTitle: 'Remove this search from favorites',
+            },
+            errorScreen: {
+              titleText: 'Unable to fetch results',
+              helpText: 'You might want to check your network connection.',
+            },
+            footer: {
+              selectText: 'to select',
+              selectKeyAriaLabel: 'Enter key',
+              navigateText: 'to navigate',
+              navigateUpKeyAriaLabel: 'Arrow up',
+              navigateDownKeyAriaLabel: 'Arrow down',
+              closeText: 'to close',
+              closeKeyAriaLabel: 'Escape key',
+              searchByText: 'Search by',
+            },
+            noResultsScreen: {
+              noResultsText: 'No results for',
+              suggestedQueryText: 'Try searching for',
+              reportMissingResultsText: 'Believe this query should return results?',
+              reportMissingResultsLinkText: 'Let us know.',
+            },
+          },
+        },
+      });
+      console.log('DocSearch initialized successfully');
+    } catch (error) {
+      console.error('Error initializing DocSearch:', error);
+    }
+  }
+
   createDocSearchScriptTag(): HTMLScriptElement {
+    // This method is no longer used but keeping for compatibility
     const scriptTag = document.createElement('script');
     scriptTag.type = 'text/javascript';
     scriptTag.src = 'https://cdn.jsdelivr.net/npm/@docsearch/js@3';

@@ -10,6 +10,12 @@ import { ComponentsComponent } from './homepage/pages/components/components.comp
 import { DecoratorsComponent } from './homepage/pages/decorators/decorators.component';
 import { MiddlewaresComponent } from './homepage/pages/middlewares/middlewares.component';
 import { ShieldsComponent } from './homepage/pages/shields/shields.component';
+import { FrameworkOverviewComponent } from './homepage/pages/framework-overview/framework-overview.component';
+import { CoreArchitectureComponent } from './homepage/pages/core-architecture/core-architecture.component';
+import { UtilitiesComponent } from './homepage/pages/utilities/utilities.component';
+import { PackagesComponent } from './homepage/pages/packages/packages.component';
+import { ExceptionsComponent } from './homepage/pages/exceptions/exceptions.component';
+import { PipesComponent } from './homepage/pages/pipes/pipes.component';
 
 const routes: Routes = [
   {
@@ -62,8 +68,33 @@ const routes: Routes = [
       },
       {
         path: 'pipes',
-        // component: PipesComponent,
+        component: PipesComponent,
         data: { title: 'Pipes' },
+      },
+      {
+        path: 'framework-overview',
+        component: FrameworkOverviewComponent,
+        data: { title: 'Framework Overview' },
+      },
+      {
+        path: 'core-architecture',
+        component: CoreArchitectureComponent,
+        data: { title: 'Core Architecture' },
+      },
+      {
+        path: 'utilities',
+        component: UtilitiesComponent,
+        data: { title: 'Utilities' },
+      },
+      {
+        path: 'packages',
+        component: PackagesComponent,
+        data: { title: 'Packages' },
+      },
+      {
+        path: 'exceptions',
+        component: ExceptionsComponent,
+        data: { title: 'Exception Handling' },
       },
       {
         path: 'support',

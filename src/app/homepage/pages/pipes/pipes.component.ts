@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { BasePageComponent } from "../page/page.component";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { BasePageComponent } from '../page/page.component';
 
 @Component({
     selector: 'app-pipes',

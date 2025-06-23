@@ -17,6 +17,9 @@
     "e2e": "ng e2e",
     "docs": "npm run docs-only",
     "docs-only": "ts-node -P tools/tsconfig.json tools/dgeni-cli.ts tools/transforms/dolphjs-package/index",
+    "algolia:build": "node tools/algolia/new-upload.mjs",
+    "algolia:upload": "ts-node -P tools/tsconfig.json tools/algolia/upload.ts",
+    "algolia:build-and-upload": "npm run algolia:build && npm run algolia:upload",
     "prepare": "husky install"
   },
   "lint-staged": {

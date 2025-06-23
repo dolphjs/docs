@@ -19,6 +19,14 @@ import { ModelsComponent } from './homepage/pages/models/models.component';
 import { ComponentsComponent } from './homepage/pages/components/components.component';
 import { MiddlewaresComponent } from './homepage/pages/middlewares/middlewares.component';
 import { DecoratorsComponent } from './homepage/pages/decorators/decorators.component';
+import { GuideComponent } from './homepage/pages/guide/guide.component';
+import { ShieldsComponent } from './homepage/pages/shields/shields.component';
+import { PipesComponent } from './homepage/pages/pipes/pipes.component';
+import { FrameworkOverviewComponent } from './homepage/pages/framework-overview/framework-overview.component';
+import { CoreArchitectureComponent } from './homepage/pages/core-architecture/core-architecture.component';
+import { UtilitiesComponent } from './homepage/pages/utilities/utilities.component';
+import { PackagesComponent } from './homepage/pages/packages/packages.component';
+import { ExceptionsComponent } from './homepage/pages/exceptions/exceptions.component';
 
 @NgModule({
   imports: [
@@ -44,6 +52,14 @@ import { DecoratorsComponent } from './homepage/pages/decorators/decorators.comp
     ComponentsComponent,
     MiddlewaresComponent,
     DecoratorsComponent,
+    GuideComponent,
+    ShieldsComponent,
+    PipesComponent,
+    FrameworkOverviewComponent,
+    CoreArchitectureComponent,
+    UtilitiesComponent,
+    PackagesComponent,
+    ExceptionsComponent,
   ],
   bootstrap: [AppComponent],
   providers: [],

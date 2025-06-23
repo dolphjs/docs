@@ -4,11 +4,18 @@ import { extname, join, resolve } from 'path';
 import { environment } from '../../src/environments/environment';
 import * as cheerio from 'cheerio';
 
-console.log(environment);
+console.log('Environment:', environment);
+
+// Get the admin API key from environment variable or use a default
+const adminApiKey = process.env.ALGOLIA_ADMIN_API_KEY || 'e741bbf67223c42a4412f460dbc44723';
+
+console.log('Using App ID:', environment.appId);
+console.log('Using Index Name:', environment.indexName);
+console.log('Admin API Key provided:', adminApiKey ? 'Yes' : 'No');
 
 const client = algosearch(
   environment.appId,
-  'e741bbf67223c42a4412f460dbc44723',
+  adminApiKey,
 );
 const index = client.initIndex(environment.indexName);
 
@@ -86,19 +93,37 @@ const index = client.initIndex(environment.indexName);
 
 uploadIndex();
 
-function uploadIndex() {
-  const records = JSON.parse(
-    readFileSync(join(process.cwd(), 'index.json'), 'utf-8'),
-  );
+async function uploadIndex() {
+  try {
+    const records = JSON.parse(
+      readFileSync(join(process.cwd(), 'index.json'), 'utf-8'),
+    );
 
-  index
-    .saveObjects(records)
-    .then((result) => {
-      console.log('records uploaded successfully');
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    console.log(`Uploading ${records.length} records to Algolia...`);
 
-  console.log(records.length);
+    // Clear the existing index first
+    await index.clearObjects();
+    console.log('Existing index cleared');
+
+    // Upload new records
+    const result = await index.saveObjects(records);
+    console.log('Records uploaded successfully:', result);
+    
+    // Wait for indexing to complete
+    await index.waitTask(result.taskID);
+    console.log('Indexing completed');
+
+  } catch (error) {
+    console.error('Upload failed:', error);
+    
+    if (error.message?.includes('Unreachable hosts')) {
+      console.log('\n🔧 TROUBLESHOOTING:');
+      console.log('1. Check if your Algolia App ID is correct:', environment.appId);
+      console.log('2. Verify your admin API key (should be different from search-only key)');
+      console.log('3. Set the admin API key as environment variable:');
+      console.log('   Windows: set ALGOLIA_ADMIN_API_KEY=your_admin_key');
+      console.log('   Linux/Mac: export ALGOLIA_ADMIN_API_KEY=your_admin_key');
+      console.log('4. Make sure the index name exists in Algolia dashboard:', environment.indexName);
+    }
+  }
 }
