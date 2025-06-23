@@ -1,0 +1,257 @@
+@use '../../../../scss/variables';
+@use '../../../../scss/utils';
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-container {
+  background: variables.$grey-color;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+}
+
+.close-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+}
+
+.modal-content {
+  padding: 0;
+}
+
+.newsletter-wrapper {
+  background: variables.$grey-color;
+  padding: 50px 40px 30px;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  width: auto;
+  border-radius: 8px;
+
+  @include utils.media(medium) {
+    padding: 40px 20px 20px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #f4f4f4;
+    text-align: center;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0 0 30px;
+    color: #7b7b7b;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+  }
+}
+
+.signup {
+  text-align: center;
+}
+
+.hgroup {
+  margin-bottom: 25px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  
+  .form-wrapper {
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .form-control {
+    border: 0;
+    font-size: 14px;
+    height: 45px;
+    padding: 12px 20px;
+    background: #111;
+    flex: 1;
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 3px 0 0 3px;
+    box-sizing: border-box;
+    outline: 0;
+    color: variables.$silver-color;
+
+    &::placeholder {
+      color: #666;
+    }
+  }
+
+  button {
+    background: #FFC436;
+    height: 45px;
+    padding: 12px 18px;
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 0 3px 3px 0;
+    transition: all 200ms ease-in-out;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: 0;
+    min-width: 60px;
+
+    &:hover,
+    &[disabled] {
+      background: #111111;
+    }
+
+    .icon-success {
+      display: none;
+    }
+
+    &.btn-success {
+      .fa-paper-plane {
+        display: none;
+      }
+
+      &[disabled] {
+        background: #d3e6d4;
+        color: #1dd81c;
+        pointer-events: none;
+      }
+
+      .icon-success {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.skip-section {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.skip-button {
+  background: transparent;
+  border: none;
+  color: #7b7b7b;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #f4f4f4;
+  }
+}
+
+.envelope-bg {
+  font-size: 120px;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  color: rgba(222, 222, 222, 0.1);
+  z-index: 0;
+  transform: rotate(-15deg);
+  pointer-events: none;
+
+  @include utils.media(medium) {
+    font-size: 80px;
+    top: -10px;
+    right: -10px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@include utils.media(small) {
+  .modal-container {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .newsletter-wrapper {
+    padding: 30px 15px 20px;
+    
+    h3 {
+      font-size: 20px;
+    }
+    
+    p {
+      font-size: 14px;
+    }
+  }
+  
+  .newsletter-form .form-wrapper {
+    flex-direction: column;
+    gap: 10px;
+    
+    .form-control {
+      border-radius: 3px;
+    }
+    
+    button {
+      border-radius: 3px;
+    }
+  }
+} 

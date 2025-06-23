@@ -1,1 +1,6 @@
 <router-outlet></router-outlet>
+
+<app-newsletter-modal 
+  *ngIf="showNewsletterModal" 
+  (closeModal)="onCloseNewsletterModal()">
+</app-newsletter-modal>

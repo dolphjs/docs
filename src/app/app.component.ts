@@ -1,22 +1,27 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, OnDestroy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { HOMEPAGE_TITLE, TITLE_SUFFIX } from './constants';
+import { Subscription } from 'rxjs';
+import { ModalService } from './shared/services/modal.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   private robotsElement: HTMLMetaElement;
+  showNewsletterModal = false;
+  private subscription = new Subscription();
 
   constructor(
     private readonly titleService: Title,
     private readonly metaService: Meta,
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
+    private modalService: ModalService
   ) {}
 
   async ngOnInit() {
@@ -26,6 +31,16 @@ export class AppComponent implements OnInit {
         this.updateTitle();
         this.updateMeta(ev);
       });
+
+    this.subscription.add(
+      this.modalService.showNewsletterModal$.subscribe(show => {
+        this.showNewsletterModal = show;
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 
   updateTitle() {
@@ -57,5 +72,20 @@ export class AppComponent implements OnInit {
       this.metaService.removeTagElement(this.robotsElement);
       this.robotsElement = undefined;
     }
+  }
+
+  onCloseNewsletterModal() {
+    this.modalService.hideNewsletterModal();
+  }
+
+  // Testing method - remove this in production
+  showModalForTesting() {
+    this.modalService.showNewsletterModal();
+  }
+
+  // Testing method - remove this in production  
+  resetModalState() {
+    this.modalService.resetModalState();
+    console.log('Modal state reset - refresh page to see modal again');
   }
 }
